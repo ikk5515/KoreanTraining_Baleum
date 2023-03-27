@@ -1,13 +1,24 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+body{
+  margin: 0; padding: 0;
+
+  font-family: 'neuwelt_Bold';
+}
+body::-webkit-scrollbar {
+  display: none;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+@font-face {
+  font-family: 'neuwelt_Bold';
+  src: url('../public/font/NeuweltText-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'neuwelt_Medium';
+  src: url('../public/font/Neuwelt-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'bodoniXT';
+  src: url('../public/font/BodoniXT.ttf');
 }
