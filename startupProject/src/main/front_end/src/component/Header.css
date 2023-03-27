@@ -1,0 +1,27 @@
+header{
+    z-index: 1;
+    font-size: 1.5em;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+    position: fixed;
+}
+
+.logo{
+    padding : 0 3vw 0;
+    font-size: 1.5em;
+    color: #0554F2;
+    font-family: 'bodoniXT';
+}
+
+.hamWrap{
+    width: 100px;
+    height: 50px;
+    position: relative;
+}
+
+.ham{width: 45px; height: 5px; border-radius: 100px; background-color: black; position: absolute;}
+.h1{top: 0px;}
+.h2{top: 15px;}
+.h3{top: 30px;}
