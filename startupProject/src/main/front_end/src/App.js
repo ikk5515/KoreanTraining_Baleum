@@ -1,7 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
+import Header from './component/Header';
+import Summary from './component/firstPage/Summary';
 
 function App() {
+    // eslint-disable-next-line
    const [test, setTest] = useState('')
 
     useEffect(() => {
@@ -12,7 +15,8 @@ function App() {
 
     return (
         <div>
-            Spring과 React연동 Test : {test}
+            <Header/>
+            <Summary/>
         </div>
     );
 }
