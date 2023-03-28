@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import Header from './component/Header';
 import Summary from './component/firstPage/Summary';
+import Slidemenu from './component/Slidemenu';
+import Category from './component/Category';
 
 function App() {
     // eslint-disable-next-line
@@ -15,8 +17,11 @@ function App() {
 
     return (
         <div>
-            <Header/>
+            <Header >
+                <Slidemenu/>
+            </Header>
             <Summary/>
+            <Category/>
         </div>
     );
 }
