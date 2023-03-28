@@ -14,6 +14,16 @@ body::-webkit-scrollbar {
 }
 
 @font-face {
+  font-family: 'neuwelt_Thin';
+  src: url('../public/font/NeuweltText-Thin.ttf');
+}
+
+@font-face {
+  font-family: 'neuwelt_Light';
+  src: url('../public/font/NeuweltText-Light.ttf');
+}
+
+@font-face {
   font-family: 'neuwelt_Medium';
   src: url('../public/font/Neuwelt-Medium.ttf');
 }
