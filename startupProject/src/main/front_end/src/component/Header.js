@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './Header.css';
 
-export default function Header(){
+export default function Header({children}){
     
     const [click, setClick] = useState(0);
     console.log(click);
@@ -42,7 +42,17 @@ export default function Header(){
                         transition : '0.5s',}
                 }></div>
             </div>
-
+            <div className='children' style={
+                click ? {
+                    transform : 'translateX(0px)',
+                    transition: '0.5s',
+                } : {
+                    transform : 'translateX(350px)',
+                    transition: '0.5s',
+                }
+            }>
+                {children}
+            </div>
         </header>
     )
 }
