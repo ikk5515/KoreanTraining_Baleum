@@ -1,0 +1,8 @@
+{
+    "property" : [
+        {"id" : 1, "title" : "Daily"},
+        {"id" : 2, "title" : "Business"},
+        {"id" : 3, "title" : "Movie"},
+        {"id" : 4, "title" : "Drama"}
+    ]
+}
