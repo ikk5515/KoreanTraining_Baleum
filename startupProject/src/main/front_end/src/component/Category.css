@@ -1,0 +1,74 @@
+.cateWrap{
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.blueCircle{
+    position: absolute;
+    top: -65vh;
+    left: 60vw;
+    width: 100vw;
+    height: 130vh;
+    background-color: #6BB3F2;
+    border-radius: 1000px;
+    opacity: 0.1;
+    z-index: -100;
+}
+
+.textArea{
+    width: 750px;
+    position: absolute;
+    top: -15%;
+    left: calc(50% - 375px);
+    z-index: -10;
+}
+
+.textArea h1{
+    
+}
+
+.textArea p{
+    font-family: 'neuwelt_Medium';
+    color: black
+}
+
+.textArea p:nth-of-type(1){
+    font-family: 'bodoniXT';
+    color:#0554F2;
+}
+
+.textArea p:nth-of-type(1), .textArea p:nth-of-type(3){
+    margin: 0 0 0 20px;
+}
+
+.cateWrap ul{
+    margin: 100px auto 0;
+    height: 100vh;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cateWrap ul li{
+    width: 15vw;
+    font-size: 1.75em;
+    background-color: #0554F2;
+    font-family: 'neuwelt_Medium';
+    color: white;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 0 0 10px 20px;
+    line-height: 70px;
+    box-shadow: gray 5px 5px 10px;
+    position: relative;
+}   
+
+.cateWrap ul li span{
+    font-family: 'Courier New', Courier, monospace;
+    margin:0;
+    padding:0;
+    position: absolute;
+    bottom: -5px;
+    right: 20px;
+}
