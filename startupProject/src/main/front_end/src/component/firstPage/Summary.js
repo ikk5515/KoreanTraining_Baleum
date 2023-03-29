@@ -1,8 +1,10 @@
+import Category from '../Category';
 import './Summary.css';
 
 export default function Summary(){
 
     return(
+        <>
         <section>
             <div className='textContent'>
                 <h1>Speak with confidence!</h1>
@@ -15,5 +17,7 @@ export default function Summary(){
             <div className='rain2 rain'></div>
             <div className='rain3 rain'></div>
         </section>
+        <Category/>
+        </>
     )
 }
