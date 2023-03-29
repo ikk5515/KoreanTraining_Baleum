@@ -49,26 +49,33 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
+
+.cateWrap ul .navLink{
+    text-decoration: none;
+}
+
+
 .cateWrap ul li{
     width: 15vw;
-    font-size: 1.75em;
     background-color: #0554F2;
-    font-family: 'neuwelt_Medium';
-    color: white;
     border-radius: 10px;
     margin: 5px;
     padding: 0 0 10px 20px;
     line-height: 70px;
     box-shadow: gray 5px 5px 10px;
     position: relative;
+    color: white;
 }   
+
+.cateWrap ul li p{
+    font-family: 'neuwelt_Medium';
+}
 
 .cateWrap ul li span{
     font-family: 'Courier New', Courier, monospace;
     margin:0;
     padding:0;
     position: absolute;
-    bottom: -5px;
-    right: 20px;
 }
