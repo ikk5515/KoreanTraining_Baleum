@@ -4,6 +4,9 @@ import Header from './component/Header';
 import Summary from './component/firstPage/Summary';
 import Slidemenu from './component/Slidemenu';
 import Category from './component/Category';
+import Router from './component/Router';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import FuncApp from './component/FuncApp';
 
 function App() {
     // eslint-disable-next-line
@@ -16,13 +19,15 @@ function App() {
     }, []);
 
     return (
-        <div>
+        <BrowserRouter>
             <Header >
                 <Slidemenu/>
             </Header>
-            <Summary/>
-            <Category/>
-        </div>
+            <Routes>
+                <Route path='/' element={<Summary/>}/>
+                <Route path='/func' element={<FuncApp />}/>
+            </Routes>
+        </BrowserRouter>
     );
 }
 
