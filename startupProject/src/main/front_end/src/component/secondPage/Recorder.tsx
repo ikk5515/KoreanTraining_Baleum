@@ -4,7 +4,6 @@ import './Recorder.css';
 function Recorder() {
   const [recording, setRecording] = useState<boolean>(false);
   const [audioURL, setAudioURL] = useState<string>('');
-  const [websocket, setWebSocket] = useState<WebSocket | null>(null);
   const recorderRef = useRef<MediaRecorder | null>(null);
 
   const handleStartRecording = async () => {
@@ -20,12 +19,12 @@ function Recorder() {
     });
 
     recorder.addEventListener('stop', () => {
-      const blob = new Blob(chunks, { type: 'audio/webm' });
+      const blob = new Blob(chunks, { type: 'audio/wav' });
       const url = URL.createObjectURL(blob);
       setAudioURL(url);
-      if (websocket) {
-        websocket.send(blob);
-      }
+      const formData = new FormData();
+      formData.append('audio', blob, 'recording.wav');
+      fetch('http://localhost:8080/upload', { method: 'POST', body: formData });
     });
 
     recorder.start();
@@ -42,27 +41,17 @@ function Recorder() {
     }
   };
 
-  const handleWebSocketConnect = () => {
-    const ws = new WebSocket('ws://localhost:8080');
-    setWebSocket(ws);
-  };
-
-  const handleWebSocketClose = () => {
-    if (websocket) {
-      websocket.close();
-      setWebSocket(null);
-    }
-  };
-
   const handleSaveRecording = () => {
     const link = document.createElement('a');
     link.href = audioURL;
-    link.download = 'recording.webm';
+    link.download = 'recording.wav';
     link.click();
   };
 
+  
+
   return (
-    <div className='recodeWrap'>
+    <div className='recordWrap'>
       {recording ? (
         <button onClick={handleStopRecording}>Stop Recording</button>
       ) : (

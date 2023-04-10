@@ -1,7 +1,11 @@
 {
   "files": {
     "main.css": "/static/css/main.ec9d166a.css",
+<<<<<<< HEAD
     "main.js": "/static/js/main.d21d242e.js",
+=======
+    "main.js": "/static/js/main.e8b62dc5.js",
+>>>>>>> dc7d739acd3432ea033507c6a52accd99aae1625
     "static/media/Neuwelt-Medium.ttf": "/static/media/Neuwelt-Medium.3c056829555606fbe137.ttf",
     "static/media/NeuweltText-Bold.ttf": "/static/media/NeuweltText-Bold.7714de5030d4aeb8caf3.ttf",
     "static/media/NeuweltText-Light.ttf": "/static/media/NeuweltText-Light.c70d94e7d282e6b1ace7.ttf",
@@ -10,10 +14,18 @@
     "static/media/menu.png": "/static/media/menu.539992da08a00974f68e.png",
     "index.html": "/index.html",
     "main.ec9d166a.css.map": "/static/css/main.ec9d166a.css.map",
+<<<<<<< HEAD
     "main.d21d242e.js.map": "/static/js/main.d21d242e.js.map"
   },
   "entrypoints": [
     "static/css/main.ec9d166a.css",
     "static/js/main.d21d242e.js"
+=======
+    "main.e8b62dc5.js.map": "/static/js/main.e8b62dc5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ec9d166a.css",
+    "static/js/main.e8b62dc5.js"
+>>>>>>> dc7d739acd3432ea033507c6a52accd99aae1625
   ]
 }
