@@ -1,0 +1,13 @@
+.recodeWrap{
+    width: 70vw;
+    height: 100vh;
+    position: relative;
+    z-index: 100;
+}
+
+.recodeWrap button{
+    position: absolute;
+    top: 45vh;
+    left: 45vw;
+
+}
