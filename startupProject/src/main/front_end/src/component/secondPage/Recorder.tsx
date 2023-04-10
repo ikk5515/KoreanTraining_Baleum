@@ -19,11 +19,11 @@ function Recorder() {
     });
 
     recorder.addEventListener('stop', () => {
-      const blob = new Blob(chunks, { type: 'audio/webm' });
+      const blob = new Blob(chunks, { type: 'audio/wav' });
       const url = URL.createObjectURL(blob);
       setAudioURL(url);
       const formData = new FormData();
-      formData.append('audio', blob, 'recording.webm');
+      formData.append('audio', blob, 'recording.wav');
       fetch('http://localhost:8080/upload', { method: 'POST', body: formData });
     });
 
@@ -44,12 +44,14 @@ function Recorder() {
   const handleSaveRecording = () => {
     const link = document.createElement('a');
     link.href = audioURL;
-    link.download = 'recording.webm';
+    link.download = 'recording.wav';
     link.click();
   };
 
+  
+
   return (
-    <div className='recodeWrap'>
+    <div className='recordWrap'>
       {recording ? (
         <button onClick={handleStopRecording}>Stop Recording</button>
       ) : (
