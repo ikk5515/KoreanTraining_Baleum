@@ -1,10 +1,9 @@
 import React, { useState, useRef } from 'react';
-import './Recoder.css';
+import './Recorder.css';
 
 function Recorder() {
   const [recording, setRecording] = useState<boolean>(false);
   const [audioURL, setAudioURL] = useState<string>('');
-  const [websocket, setWebSocket] = useState<WebSocket | null>(null);
   const recorderRef = useRef<MediaRecorder | null>(null);
 
   const handleStartRecording = async () => {
@@ -23,9 +22,9 @@ function Recorder() {
       const blob = new Blob(chunks, { type: 'audio/webm' });
       const url = URL.createObjectURL(blob);
       setAudioURL(url);
-      if (websocket) {
-        websocket.send(blob);
-      }
+      const formData = new FormData();
+      formData.append('audio', blob, 'recording.webm');
+      fetch('http://localhost:8080/upload', { method: 'POST', body: formData });
     });
 
     recorder.start();
@@ -39,18 +38,6 @@ function Recorder() {
     if (recorder) {
       recorder.stop();
       setRecording(false);
-    }
-  };
-
-  const handleWebSocketConnect = () => {
-    const ws = new WebSocket('ws://localhost:8080');
-    setWebSocket(ws);
-  };
-
-  const handleWebSocketClose = () => {
-    if (websocket) {
-      websocket.close();
-      setWebSocket(null);
     }
   };
 
