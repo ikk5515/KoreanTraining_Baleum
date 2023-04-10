@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import './Recoder.css';
+import './Recorder.css';
 
 function Recorder() {
   const [recording, setRecording] = useState<boolean>(false);
