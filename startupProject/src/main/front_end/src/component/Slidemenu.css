@@ -1,0 +1,35 @@
+.uName{
+    margin: 0;
+    font-size: 1.25em;
+    background-color: #90c6f6;
+    padding: 20px 0 20px 40px;
+    font-family: 'neuwelt_Light';
+}
+
+ul{
+    margin: 4vh 0 0 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0.8em;
+}
+
+ul li{
+    margin: 0 0 4vh 0;
+    padding: 0 0 1vh 1vw;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid rgba(131, 131, 131, 0.5);
+}
+
+ul li p{
+    font-size: 1.25em;
+    margin: 0;
+    font-family: 'neuwelt_Light';
+}
+
+ul li img{
+    width: 35px;
+    margin: 0 15px 0 0;
+    
+}
