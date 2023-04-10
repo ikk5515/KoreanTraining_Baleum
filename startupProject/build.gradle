@@ -16,6 +16,9 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'com.google.code.gson:gson:2.10.1'
+	implementation 'org.projectlombok:lombok:1.18.20'
+	implementation 'commons-io:commons-io:2.11.0'    /* Apache commons-io */
+	implementation group: 'commons-fileupload', name: 'commons-fileupload', version: '1.4' /* Apache Commons FileUpload */
 }
 
 tasks.named('test') {
