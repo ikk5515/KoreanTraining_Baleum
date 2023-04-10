@@ -1,5 +1,5 @@
 import React from 'react';
-import Recoder from './Recoder';
+import Recoder from './Recorder';
 
 export default function FuncApp(){
     return(
