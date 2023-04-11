@@ -1,7 +1,7 @@
 import React from 'react';
 import './Category.css';
-import data from '../jData/categoryData.json';
-import FuncApp from './FuncApp';
+import data from '../../jData/categoryData.json';
+import FuncApp from '../secondPage/FuncApp';
 import {NavLink} from 'react-router-dom';
 import { useState } from 'react';
 
@@ -19,7 +19,8 @@ export default function Category(){
             <div className='blueCircle'></div>
             <div className='textArea'>
                 <h1>Check your pronunciation skills!</h1>
-                <p>BBALKING</p> <p>provides you with various text for grading.</p>
+                <p>BBALKING</p>
+                <p>provides you with various text for grading.</p>
                 <p>Choose the theme you want!</p>
             </div>
             <ul>
