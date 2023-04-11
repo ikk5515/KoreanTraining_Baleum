@@ -18,3 +18,12 @@
     background-color: #0554F2;
     color: white;
 }
+
+.audioWrap{
+    position: absolute;
+    top: 40vh;
+}
+.audioWrap button{
+    top: 5vh;
+}
+
