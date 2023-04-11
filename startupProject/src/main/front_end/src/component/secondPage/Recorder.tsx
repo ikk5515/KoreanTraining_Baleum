@@ -56,7 +56,7 @@ function Recorder() {
         <button onClick={handleStartRecording}>Start Recording</button>
       )}
       {audioURL && (
-        <div>
+        <div className='audioWrap'>
           <audio src={audioURL} controls />
           <button onClick={handleSaveRecording}>Save Recording</button>
         </div>
