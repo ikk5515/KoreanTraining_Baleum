@@ -20,7 +20,7 @@ public class uploadFile {
     private static final Logger logger = LoggerFactory.getLogger(uploadFile.class);
 
     @PostMapping("/upload")
-    public FileUploadResponse uploadFile(@RequestParam("file") MultipartFile file) throws IOException {
+    public FileUploadResponse uploadFile(@RequestParam("audio") MultipartFile file) throws IOException {
 //        String fileName = "recording-" + new Date().getTime() + ".wav";
 //        service.storeFile(file);
         String fileName = service.storeFile(file);
