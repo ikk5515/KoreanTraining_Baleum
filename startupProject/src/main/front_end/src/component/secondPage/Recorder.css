@@ -1,14 +1,20 @@
-.recodeWrap{
-    width: 70vw;
+.recordWrap{
+    width: 82vw;
     height: 100vh;
     position: relative;
-    z-index: 100;
     display: inline-block;
 }
 
-.recodeWrap button{
+.recordWrap button{
     position: absolute;
     top: 45vh;
-    left: 45vw;
-
+    left: 36vw;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.5em;
+    font-family: 'neuwelt_Medium';
+    width: 250px;
+    height: 60px;
+    background-color: #0554F2;
+    color: white;
 }
