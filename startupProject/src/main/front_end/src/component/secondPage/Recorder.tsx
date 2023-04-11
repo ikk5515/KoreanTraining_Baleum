@@ -24,7 +24,7 @@ function Recorder() {
       setAudioURL(url);
       const formData = new FormData();
       formData.append('audio', blob, 'recording.wav');
-      fetch('http://localhost:8080/upload', { method: 'POST', body: formData });
+      fetch('/upload', { method: 'POST', body: formData });
     });
 
     recorder.start();
@@ -47,8 +47,6 @@ function Recorder() {
     link.download = 'recording.wav';
     link.click();
   };
-
-  
 
   return (
     <div className='recordWrap'>
