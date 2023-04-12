@@ -16,6 +16,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Service
@@ -35,7 +36,9 @@ public class FileUploadDownloadService {
 
     public String storeFile(MultipartFile file) {
         // Normalize file name
-        String fileName = "recording-" + new Date().getTime() + ".wav";
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmssSSS");
+        String fileName = dateFormat.format(new Date()) + ".wav";
+//        String fileName = "recording-" + new Date().getTime() + ".wav";
 
         try {
             // Check if the file's name contains invalid characters
