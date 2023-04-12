@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import './Recorder.css';
+import WavEncoder from 'wav-encoder';
 
 function Recorder() {
   const [recording, setRecording] = useState<boolean>(false);
@@ -7,29 +8,41 @@ function Recorder() {
   const recorderRef = useRef<MediaRecorder | null>(null);
 
   const handleStartRecording = async () => {
-    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-    const recorder = new MediaRecorder(stream);
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const recorder = new MediaRecorder(stream, { mimeType: 'audio/webm; codecs=opus' });
 
-    recorderRef.current = recorder;
+      recorderRef.current = recorder;
 
-    const chunks: BlobPart[] = [];
+      const chunks: BlobPart[] = [];
 
-    recorder.addEventListener('dataavailable', (event: BlobEvent) => {
-      chunks.push(event.data);
-    });
+      recorder.addEventListener('dataavailable', (event: BlobEvent) => {
+        chunks.push(event.data);
+      });
 
-    recorder.addEventListener('stop', () => {
-      const blob = new Blob(chunks, { type: 'audio/wav' });
-      const url = URL.createObjectURL(blob);
-      setAudioURL(url);
-      const formData = new FormData();
-      formData.append('audio', blob, 'recording.wav');
-      fetch('/upload', { method: 'POST', body: formData });
-    });
+      recorder.addEventListener('stop', async () => {
+        const blob = new Blob(chunks, { type: 'audio/webm; codecs=opus' });
+        const audioContext = new AudioContext();
+        const audioBuffer = await audioContext.decodeAudioData(await blob.arrayBuffer());
+        const audioData = {
+          sampleRate: audioBuffer.sampleRate,
+          channelData: Array.from({ length: audioBuffer.numberOfChannels }, (_, i) => audioBuffer.getChannelData(i))
+        };
+        const wavBuffer = await WavEncoder.encode(audioData);
+        const wavBlob = new Blob([wavBuffer], { type: 'audio/wav' });
+        const url = URL.createObjectURL(wavBlob);
+        setAudioURL(url);
+        const formData = new FormData();
+        formData.append('audio', wavBlob, 'recording.wav');
+        fetch('/upload', { method: 'POST', body: formData });
+      });
 
-    recorder.start();
+      recorder.start();
 
-    setRecording(true);
+      setRecording(true);
+    } catch (err) {
+      console.error('Failed to start recording', err);
+    }
   };
 
   const handleStopRecording = () => {
@@ -42,10 +55,15 @@ function Recorder() {
   };
 
   const handleSaveRecording = () => {
-    const link = document.createElement('a');
-    link.href = audioURL;
-    link.download = 'recording.wav';
-    link.click();
+    const downloadLink = document.createElement('a');
+    downloadLink.href = audioURL;
+    downloadLink.download = 'recording.wav';
+
+    // 클릭하여 다운로드합니다.
+    downloadLink.click();
+
+    // URL 객체를 해제합니다.
+    URL.revokeObjectURL(audioURL);
   };
 
   return (
