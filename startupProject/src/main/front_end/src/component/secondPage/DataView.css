@@ -1,0 +1,15 @@
+.viewWrap {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.viewWrap .view{
+    width: 70vw;
+    height: 73vh;
+    background-color: rgb(232, 237, 240);
+    border-radius: 50px;
+    position: absolute;
+    top: 15vh;
+    left: calc(50% - 35vw);
+}
