@@ -1,6 +1,4 @@
-body{
-}
-
 .funcAppWrap{
     display: flex;
+    overflow: hidden;
 }
