@@ -24,7 +24,7 @@ public class WavToRaw {
         super();
     }
 
-    public void SaveRaw(String audioName, File file) throws UnsupportedAudioFileException {
+    public String SaveRaw(String audioName, File file) throws UnsupportedAudioFileException {
         try {
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmssSSS");
             String fileName = "src/main/resources/audio/"+dateFormat.format(new Date()) + ".raw";
@@ -34,12 +34,12 @@ public class WavToRaw {
             output.flush();
             output.close();
 
-            System.out.print("Success");
+            System.out.println("Wav to Raw converting Success");
+            return fileName;
 
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+            return null;
         }
     }
 
