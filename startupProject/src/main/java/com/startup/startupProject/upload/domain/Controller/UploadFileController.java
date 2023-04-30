@@ -45,9 +45,9 @@ public class UploadFileController {
         // 임시 데이터
         String objName = "안녕하세요 김인기입니다.";
 
-        Double score = etriapiService.etriApi(audioFileName, objName);
+        double score = etriapiService.etriApi(audioFileName, objName);
         score = Math.round(score*100)/100.0;
-        String scoreString = score.toString();
+        String scoreString = Double.toString(score);
 
         fileDeleteService.deleteFile(audioFileFullMame);
 
