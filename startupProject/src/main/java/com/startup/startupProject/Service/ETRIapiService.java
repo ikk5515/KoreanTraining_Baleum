@@ -62,11 +62,15 @@ public class ETRIapiService {
             con.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
             con.setRequestProperty("Authorization", accessKey);
 
+            con.setConnectTimeout(3000);
+            con.setReadTimeout(3000);
+
             DataOutputStream wr = new DataOutputStream(con.getOutputStream());
             wr.write(gson.toJson(request).getBytes(StandardCharsets.UTF_8));
             wr.flush();
             wr.close();
 
+            System.out.println("Please wait for a while.");
 
             responseCode = con.getResponseCode();
             InputStream is = con.getInputStream();
@@ -75,12 +79,11 @@ public class ETRIapiService {
             responBody = new String(buffer);
 
             System.out.println("[responseCode] " + responseCode);
-            System.out.println("[responBody]");
-            System.out.println(responBody);
+            System.out.println("[responBody] " + responBody);
 
             String[] list = responBody.split("score\":");
-            for (int i = 0; i < list.length; i++) {
-                System.out.println(list[i]);
+            for (String s : list) {
+                System.out.println(s);
             }
 
             String scoreString = list[1].substring(1, list[1].length() - 3);
@@ -90,11 +93,13 @@ public class ETRIapiService {
                 responseScore = Double.parseDouble(scoreString);
             } catch (NumberFormatException e) {
                 e.printStackTrace();
-                return 0.0;
+                responseScore = 0.0;
+                return responseScore;
             }
         } catch (IOException e) {
             e.printStackTrace();
-            return 0.0;
+            responseScore = 0.0;
+            return responseScore;
         }
         return responseScore;
     }
