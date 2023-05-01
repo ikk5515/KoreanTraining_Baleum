@@ -1,5 +1,8 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import './SubDataList.css';
+import data from '../../jData/categoryData.json';
+
+
 
 const text = [
     [
@@ -44,28 +47,44 @@ const text = [
     ]
 ]
 export default function SubDataList(props:{click:number[], ChangeClick:any}){
-
     const {click} = props;
     const [filteredText, setFilteredText] = useState([[{id:0,scr:''}]]);
+    const [filteredTitle, setFilteredTitle] = useState([{id:0, title:''}]);
 
     useEffect(() => {
         const filteredList = text.filter((item, i) => click[i] === 1);
         setFilteredText(filteredList);
     },[click]);
 
+    useEffect(() => {
+        const filteredT = data.property.filter((item, i) => click[i] === 1);
+        setFilteredTitle(filteredT);
+    },[click]);
+
     return(
-        <ul className='subDataWrap'>
-            {filteredText.length > 0 ? (
-                filteredText.map((subArray) =>
-                subArray.map((item) =>
-                    <li key={item.id}>{item.scr}</li>
-                ))) :
-                (
-                    <div className='chooseAlert'>
-                        <p>Select Category you want!</p>
-                    </div>
-                )
-            }
-        </ul>
+        <div className='SDLwrap'>
+            <p>
+                {filteredTitle.length > 0 ?
+                    filteredTitle[0].title :
+                    undefined
+                }
+            </p>
+            <p>Choose a sentence that you are confident in pronouncing it</p>
+            <ul className='subDataWrap'>
+                {filteredText.length > 0 ? (
+                        filteredText.map((subArray) =>
+                            subArray.map((item) =>
+                                <li key={item.id}>{item.scr}</li>
+                            ))) :
+                    (
+                        <div className='chooseAlert'>
+                            <p>Select Category you want!</p>
+                            <div>👈</div>
+                        </div>
+                    )
+                }
+            </ul>
+            <p>Choose using the mouse wheel</p>
+        </div>
     )
 }
