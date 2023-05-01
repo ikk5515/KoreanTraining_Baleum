@@ -79,7 +79,9 @@ export default function SubDataList(props:{click:number[], ChangeClick:any}){
                     (
                         <div className='chooseAlert'>
                             <p>Select Category you want!</p>
-                            <div>👈</div>
+                            <div>
+                                👈
+                            </div>
                         </div>
                     )
                 }
