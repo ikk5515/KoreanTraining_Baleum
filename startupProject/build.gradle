@@ -22,6 +22,9 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'org.springframework.boot:spring-boot-configuration-processor'
 
+	compileOnly 'org.jetbrains:annotations:24.0.1'
+	implementation 'org.springframework:spring-context:5.3.9'
+
 }
 
 tasks.named('test') {

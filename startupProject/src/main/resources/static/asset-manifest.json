@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.ec9d166a.css",
-    "main.js": "/static/js/main.e8b62dc5.js",
+    "main.css": "/static/css/main.b48c1889.css",
+    "main.js": "/static/js/main.39f075f7.js",
     "static/media/Neuwelt-Medium.ttf": "/static/media/Neuwelt-Medium.3c056829555606fbe137.ttf",
     "static/media/NeuweltText-Bold.ttf": "/static/media/NeuweltText-Bold.7714de5030d4aeb8caf3.ttf",
     "static/media/NeuweltText-Light.ttf": "/static/media/NeuweltText-Light.c70d94e7d282e6b1ace7.ttf",
@@ -9,11 +9,11 @@
     "static/media/BodoniXT.ttf": "/static/media/BodoniXT.4c0ecd11d6db356395a4.ttf",
     "static/media/menu.png": "/static/media/menu.539992da08a00974f68e.png",
     "index.html": "/index.html",
-    "main.ec9d166a.css.map": "/static/css/main.ec9d166a.css.map",
-    "main.e8b62dc5.js.map": "/static/js/main.e8b62dc5.js.map"
+    "main.b48c1889.css.map": "/static/css/main.b48c1889.css.map",
+    "main.39f075f7.js.map": "/static/js/main.39f075f7.js.map"
   },
   "entrypoints": [
-    "static/css/main.ec9d166a.css",
-    "static/js/main.e8b62dc5.js"
+    "static/css/main.b48c1889.css",
+    "static/js/main.39f075f7.js"
   ]
 }
