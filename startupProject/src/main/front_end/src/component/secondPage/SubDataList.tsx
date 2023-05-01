@@ -1,6 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
 import './SubDataList.css';
-import scData from '../../jData/scriptData.json';
 
 const text = [
     [
