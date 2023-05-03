@@ -50,6 +50,7 @@ export default function SubDataList(props:{click:number[], ChangeClick:any}){
     const {click} = props;
     const [filteredText, setFilteredText] = useState([[{id:0,scr:''}]]);
     const [filteredTitle, setFilteredTitle] = useState([{id:0, title:''}]);
+    const noneChoose: string = '👈 Select Category you want!';
 
     useEffect(() => {
         const filteredList = text.filter((item, i) => click[i] === 1);
@@ -66,7 +67,7 @@ export default function SubDataList(props:{click:number[], ChangeClick:any}){
             <p>
                 {filteredTitle.length > 0 ?
                     filteredTitle[0].title :
-                    undefined
+                    noneChoose
                 }
             </p>
             <p>Choose a sentence that you are confident in pronouncing it</p>
@@ -75,16 +76,7 @@ export default function SubDataList(props:{click:number[], ChangeClick:any}){
                         filteredText.map((subArray) =>
                             subArray.map((item) =>
                                 <li key={item.id}>{item.scr}</li>
-                            ))) :
-                    (
-                        <div className='chooseAlert'>
-                            <p>Select Category you want!</p>
-                            <div>
-                                👈
-                            </div>
-                            <div>👈</div>
-                        </div>
-                    )
+                            ))) : undefined
                 }
             </ul>
             <p>Choose using the mouse wheel</p>
