@@ -12,20 +12,22 @@
     font-family: 'neuwelt_Medium';
 }
 .SDLwrap p:nth-of-type(1){
-    font-size: 2.5em;
-    top: 12vh;
-    left: 22vw;
+    font-size: 3em;
+    top: 8vh;
+    left: 20vw;
 }
 .SDLwrap p:nth-of-type(2){
+    font-size: 2.25em;
     color: black;
-    top: 20vh;
-    left: 22vw;
+    width: 1000px;
+    top: 16vh;
+    left: 20vw;
 }
 
 .subDataWrap{
-    height: 40vh;
+    height: 50vh;
     width: fit-content;
-    margin: calc(50vh - 20vh) 0 2vh 5vw;
+    margin: calc(50vh - 25vh) 0 2vh 5vw;
     padding: 0;
     display: flex;
     align-items: center;
@@ -34,7 +36,7 @@
 .subDataWrap li{
     border: none;
     border-radius: 25px;
-    box-shadow: gray 5px 10px 10px;
+    box-shadow: rgba(0, 0, 0, 0.5) 5px 15px 15px;
     font-size: 1.5em;
     width: 250px;
     height: 300px;
@@ -53,6 +55,9 @@
 
 .wheelP{
     position: fixed;
-    bottom: 20vh;
-    left: 22vw;
+    bottom: 16vh;
+    left: 20vw;
+    width: 400px;
+    font-size: 2.5em;
+    font-family: 'neuwelt_Medium';
 }
