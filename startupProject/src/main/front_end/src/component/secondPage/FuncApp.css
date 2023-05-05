@@ -1,4 +1,6 @@
 .funcAppWrap{
-    display: flex;
     overflow: hidden;
+}
+
+.bge{
 }

@@ -1,20 +1,19 @@
 .listWrap{
-    font-family: 'neuwelt_Medium';
-    margin: 0;
-    padding: 0;
-    width: 250px;
-    height: 100vh;
-    box-shadow: rgb(178, 178, 178) 0px 0px 20px;
-    background-color: white;
+
     /* background-color: #0554F2; */
 
 }
 
 .listWrap .funcList{
     margin: 0 0 0 0;
-    width: 100%;
     padding: 90px 0 0 0;
     z-index: 100;
+    position: fixed;
+    font-family: 'neuwelt_Medium';
+    width: 15vw;
+    height: 100vh;
+    box-shadow: rgb(178, 178, 178) 0px 0px 20px;
+    background-color: white;
 }
 
 .listWrap .funcList li{

@@ -50,23 +50,35 @@ export default function SubDataList(props:{click:number[], ChangeClick:any}){
     const {click} = props;
     const [filteredText, setFilteredText] = useState([[{id:0,scr:''}]]);
     const [filteredTitle, setFilteredTitle] = useState([{id:0, title:''}]);
+    const scrollRef = useRef<HTMLDivElement>(null);
+    const noneChoose: string = '👈 Select Category you want!';
 
     useEffect(() => {
         const filteredList = text.filter((item, i) => click[i] === 1);
         setFilteredText(filteredList);
     },[click]);
-
     useEffect(() => {
         const filteredT = data.property.filter((item, i) => click[i] === 1);
         setFilteredTitle(filteredT);
     },[click]);
 
+    function handleWheel(e:any){
+        const scroll = scrollRef.current;
+        const scrollPosition = scroll?.scrollLeft || 0;
+        if (scroll) {
+            scroll.scrollTo({
+                left: scrollPosition + e.deltaY,
+                behavior: "smooth",
+            });
+        }
+    };
+
     return(
-        <div className='SDLwrap'>
+        <div className='SDLwrap' ref={scrollRef} onWheel={handleWheel}>
             <p>
                 {filteredTitle.length > 0 ?
                     filteredTitle[0].title :
-                    undefined
+                    noneChoose
                 }
             </p>
             <p>Choose a sentence that you are confident in pronouncing it</p>
@@ -75,16 +87,10 @@ export default function SubDataList(props:{click:number[], ChangeClick:any}){
                         filteredText.map((subArray) =>
                             subArray.map((item) =>
                                 <li key={item.id}>{item.scr}</li>
-                            ))) :
-                    (
-                        <div className='chooseAlert'>
-                            <p>Select Category you want!</p>
-                            <div>👈</div>
-                        </div>
-                    )
+                            ))) : undefined
                 }
             </ul>
-            <p>Choose using the mouse wheel</p>
+            <p className='wheelP'>Use the mouse wheel!</p>
         </div>
     )
 }
