@@ -1,0 +1,18 @@
+.bge .dot{border-radius: 1000px; position: absolute;  animation: moveBall alternate infinite; box-shadow: rgb(181, 181, 181) 3px 3px 20px;}
+.bge .dot1{background-color: #1B8EF2; width: 100px; height: 100px; top: 200px; right: 200px; z-index: -10; animation-duration: 2s;}
+.bge .dot2{display: inherit; background-color: #6BB3F2; width: 200px; height: 200px; top: 300px; left: 150px; z-index: -10; animation-duration: 2s;}
+.bge .dot3{background-color: #2EDFF2; width: 300px; height: 300px; top: 390px; right: 200px; z-index: -10; animation-duration: 1.5s;}
+
+.bge .rain{width: 2px; position: absolute;}
+.bge .rain1{top: 250px; left: 330px; height: 1050px; background-color: lightgray; z-index: -100;}
+.bge .rain2{top: 0px; left: 60vw; width: 40vw; height: 100vh; background-color: #6BB3F2; z-index: -100; opacity: 0.1;}
+.bge .rain3{top: 0px; right: 400px; height: 500px; background-color: lightgray; z-index: -100;}
+
+@keyframes moveBall {
+    0%{
+        transform: translateY(0px);
+    }
+    100%{
+        transform: translateY(20px);
+    }
+}

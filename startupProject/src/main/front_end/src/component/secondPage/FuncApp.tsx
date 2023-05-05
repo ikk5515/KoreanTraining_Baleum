@@ -1,11 +1,14 @@
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import FuncList from './FuncList';
+import BgElement from "../firstPage/BgElement";
 import './FuncApp.css'
 import DataView from './DataView';
+
 
 export default function FuncApp(){
 
     const [click, setClick] = useState([0, 0, 0, 0, 0]);
+    const hSetting = useRef<HTMLDivElement>(null);
 
     function ChangeClick(index : number){
         click[index] = click[index] ? 0 : 1;
@@ -23,6 +26,7 @@ export default function FuncApp(){
         <div className='funcAppWrap'>
             <FuncList click={click} ChangeClick={ChangeClick}/>
             {/*<DataView/>*/}
+            <BgElement height={'500px'} display={'none'}/>
         </div>
     )
 }
