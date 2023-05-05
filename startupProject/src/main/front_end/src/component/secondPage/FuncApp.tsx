@@ -1,6 +1,6 @@
 import React, {useRef, useState} from 'react';
 import FuncList from './FuncList';
-import BgElement from "../firstPage/BgElement";
+import BgElement from '../firstPage/BgElement';
 import './FuncApp.css'
 import DataView from './DataView';
 

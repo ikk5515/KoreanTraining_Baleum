@@ -86,11 +86,13 @@ export default function SubDataList(props:{click:number[], ChangeClick:any}){
                 {filteredText.length > 0 ? (
                         filteredText.map((subArray) =>
                             subArray.map((item) =>
-                                <li key={item.id}>{item.scr}</li>
+                                <>
+                                    <li key={item.id}>{item.scr}</li>
+                                    <div className='wheelP'>Use the mouse wheel!</div>
+                                </>
                             ))) : undefined
                 }
             </ul>
-            <p className='wheelP'>Use the mouse wheel!</p>
         </div>
     )
 }
