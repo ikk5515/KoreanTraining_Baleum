@@ -1,4 +1,4 @@
-package com.startup.startupProject.Errorpage;
+package com.startup.startupProject.Errorpage.Controller;
 
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;
