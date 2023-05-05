@@ -50,20 +50,31 @@ export default function SubDataList(props:{click:number[], ChangeClick:any}){
     const {click} = props;
     const [filteredText, setFilteredText] = useState([[{id:0,scr:''}]]);
     const [filteredTitle, setFilteredTitle] = useState([{id:0, title:''}]);
+    const scrollRef = useRef<HTMLDivElement>(null);
     const noneChoose: string = '👈 Select Category you want!';
 
     useEffect(() => {
         const filteredList = text.filter((item, i) => click[i] === 1);
         setFilteredText(filteredList);
     },[click]);
-
     useEffect(() => {
         const filteredT = data.property.filter((item, i) => click[i] === 1);
         setFilteredTitle(filteredT);
     },[click]);
 
+    function handleWheel(e:any){
+        const scroll = scrollRef.current;
+        const scrollPosition = scroll?.scrollLeft || 0;
+        if (scroll) {
+            scroll.scrollTo({
+                left: scrollPosition + e.deltaY,
+                behavior: "smooth",
+            });
+        }
+    };
+
     return(
-        <div className='SDLwrap'>
+        <div className='SDLwrap' ref={scrollRef} onWheel={handleWheel}>
             <p>
                 {filteredTitle.length > 0 ?
                     filteredTitle[0].title :
@@ -79,7 +90,7 @@ export default function SubDataList(props:{click:number[], ChangeClick:any}){
                             ))) : undefined
                 }
             </ul>
-            <p>Choose using the mouse wheel</p>
+            <p className='wheelP'>Use the mouse wheel!</p>
         </div>
     )
 }

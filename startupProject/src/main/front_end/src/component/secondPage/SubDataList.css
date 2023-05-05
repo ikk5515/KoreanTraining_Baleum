@@ -1,16 +1,14 @@
-/*ul*/
 .SDLwrap{
-    width: 100%;
-    height: 100vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-    overflow: hidden;
+    margin: 0 0 0 20vh ;
     z-index: 1;
+    overflow-x: scroll;
+}
+.SDLwrap::-webkit-scrollbar{
+    border: none;
 }
 
 .SDLwrap p{
-    position: absolute;
+    position: fixed;
     font-family: 'neuwelt_Medium';
 }
 .SDLwrap p:nth-of-type(1){
@@ -24,15 +22,13 @@
     left: 22vw;
 }
 
-
 .subDataWrap{
-    height: 100vh;
+    height: 40vh;
     width: fit-content;
-    margin: 5vh 0 0 0;
+    margin: calc(50vh - 20vh) 0 2vh 5vw;
     padding: 0;
     display: flex;
     align-items: center;
-    overflow-x: scroll;
 }
 
 .subDataWrap li{
@@ -49,5 +45,14 @@
 }
 
 .subDataWrap li:nth-of-type(1){
-    margin: 0 1vw 0 20vw;
+    margin: 0 1vw 0 3vw;
+}
+.subDataWrap li:last-of-type{
+    margin: 0 5vw 0 1vw;
+}
+
+.wheelP{
+    position: fixed;
+    bottom: 20vh;
+    left: 22vw;
 }
