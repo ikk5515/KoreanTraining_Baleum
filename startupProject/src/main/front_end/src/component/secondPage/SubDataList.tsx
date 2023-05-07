@@ -47,20 +47,19 @@ const text = [
     ]
 ]
 export default function SubDataList(props:{click:number[], ChangeClick:any}){
-    const {click} = props;
     const [filteredText, setFilteredText] = useState([[{id:0,scr:''}]]);
     const [filteredTitle, setFilteredTitle] = useState([{id:0, title:''}]);
     const scrollRef = useRef<HTMLDivElement>(null);
     const noneChoose: string = '👈 Select Category you want!';
 
-    useEffect(() => {
-        const filteredList = text.filter((item, i) => click[i] === 1);
+    useEffect(()=>{
+        const filteredList = text.filter((item, i) => props.click[i] === 1);
         setFilteredText(filteredList);
-    },[click]);
+    },[props.click]);
     useEffect(() => {
-        const filteredT = data.property.filter((item, i) => click[i] === 1);
+        const filteredT = data.property.filter((item, i) => props.click[i] === 1);
         setFilteredTitle(filteredT);
-    },[click]);
+    },[props.click]);
 
     function handleWheel(e:any){
         const scroll = scrollRef.current;
