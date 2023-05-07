@@ -5,9 +5,7 @@ import data from '../../jData/categoryData.json';
 import SubDataList from "./SubDataList";
 
 export default function FuncList(props:{click:number[], ChangeClick:any}){
-
     const [hover, setHover] = useState([0, 0, 0, 0, 0]);
-
 
     function ChangeHover(s : number, index : number){
         hover[index] = s;
