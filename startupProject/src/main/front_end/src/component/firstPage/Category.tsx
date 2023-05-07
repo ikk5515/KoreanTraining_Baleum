@@ -1,17 +1,34 @@
+/* eslint-disable */
 import React from 'react';
 import './Category.css';
 import data from '../../jData/categoryData.json';
 import FuncApp from '../secondPage/FuncApp';
-import {NavLink} from 'react-router-dom';
+import {NavLink, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
+type IsHover = {
+    pathname: string;
+    state: {hover:number[] | undefined};
+}
+
 export default function Category(){
-    const [hover, setHover] = useState([0, 0, 0, 0, 0]);
+    const [hover, setHover] = useState<number[]>(Array(data.property.length).fill(0));
+    const nav = useNavigate();
 
     function ChangeHover(s : any, index : any){
         hover[index] = s;
         setHover([...hover]);
+        console.log(hover);
     }
+    const clicked = () => {
+        const paramHover = [...hover];
+        nav('/func', {state: {value: paramHover}});
+    }
+
+    // const hoverProp: IsHover = {
+    //     pathname: '/func',
+    //     state: {hover: hover.length ? hover : undefined}
+    // }
 
     return(
         <>
@@ -24,9 +41,9 @@ export default function Category(){
                 <p>Choose the theme you want!</p>
             </div>
             <ul>
-                {data.property.map((item : any, index : any) => (
-                    <NavLink className={'navLink'} to='func' >
-                        <li key={item.id} 
+                {data.property.map((item : any, index : number) => (
+
+                        <li key={item.id} onClick={clicked}
                         onMouseOver={()=>{ChangeHover(1, index)}} onMouseOut={()=>{ChangeHover(0, index)}}
                         style={
                             hover[index] ? {
@@ -38,10 +55,7 @@ export default function Category(){
                         }
                         >
                             <p style={
-                            hover[index] ? {
-                                transition : '0.5s',
-                                fontSize : '0.8em',
-                            } : {
+                            {
                                 transition : '1s',
                                 fontSize : '1.75em',
                             }
@@ -49,21 +63,14 @@ export default function Category(){
                                 {item.title}
                             </p>
                             <span style={
-                                hover[index] ? {
-                                    transition : '0.5s',
-                                    fontSize : '4em',
-                                    bottom : '0px',
-                                    right : '6.5vw',
-
-                                } : {
+                                {
                                     transition : '1s',
                                     fontSize : '1.75em',
                                     bottom : '-1vh',
                                     right : '1vw',
-                                }   
+                                }
                             }>▶</span>
                         </li>
-                    </NavLink>
                 ))}
             </ul>
         </div>
