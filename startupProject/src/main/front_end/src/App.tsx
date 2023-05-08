@@ -10,12 +10,6 @@ import FuncApp from './component/secondPage/FuncApp';
 function App() {
    const [test, setTest] = useState('')
 
-    useEffect(() => {
-        axios.get('/test')
-        .then(response => setTest(response.data))
-        .catch(error => console.log(error))
-    }, []);
-
     return (
         <BrowserRouter>
             <Header >
