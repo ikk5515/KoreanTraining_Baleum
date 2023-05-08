@@ -2,14 +2,8 @@
 import React from 'react';
 import './Category.css';
 import data from '../../jData/categoryData.json';
-import FuncApp from '../secondPage/FuncApp';
 import {NavLink, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-
-type IsHover = {
-    pathname: string;
-    state: {hover:number[] | undefined};
-}
 
 export default function Category(){
     const [hover, setHover] = useState<number[]>(Array(data.property.length).fill(0));
@@ -18,7 +12,6 @@ export default function Category(){
     function ChangeHover(s : any, index : any){
         hover[index] = s;
         setHover([...hover]);
-        console.log(hover);
     }
     const clicked = () => {
         const paramHover = [...hover];

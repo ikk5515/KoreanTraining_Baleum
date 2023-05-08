@@ -35,7 +35,8 @@ export default function FuncApp(){
         axios.get('http://localhost:8080/api/articles')
             .then(response => setTest(response.data))
             .catch(error => console.log(error))
-    },[test]);
+    },[]);
+    console.log(test);
 
     // @ts-ignore
     return(

@@ -8,8 +8,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import FuncApp from './component/secondPage/FuncApp';
 
 function App() {
-   const [test, setTest] = useState('')
-
     return (
         <BrowserRouter>
             <Header >
