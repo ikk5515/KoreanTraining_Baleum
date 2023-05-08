@@ -18,13 +18,12 @@ public class DataController {
 
     @GetMapping("/func")
     @ResponseBody
-    public JSONArray dataTrans() throws JSONException {
+    public String dataTrans() throws JSONException {
         JSONArray jsonArray = new JSONArray();
-//        JSONObject jsonObject = new JSONObject();
         for (int i = 0; i < scriptService.selectAllScript().size(); i++) {
             jsonArray.put(scriptService.selectAllScript().get(i));
         }
         System.out.println("jsonArray = " + jsonArray);
-        return jsonArray;
+        return jsonArray.toString();
     }
 }
