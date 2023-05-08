@@ -32,11 +32,10 @@ export default function FuncApp(){
     }
 
     useEffect(() => {
-        axios.get('/func')
+        axios.get('http://localhost:8080/api/articles')
             .then(response => setTest(response.data))
             .catch(error => console.log(error))
-    }, []);
-    console.log('윙기가 보낸 똥! : ' + test);
+    },[test]);
 
     // @ts-ignore
     return(
