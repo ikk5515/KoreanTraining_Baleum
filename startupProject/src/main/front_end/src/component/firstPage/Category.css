@@ -59,7 +59,7 @@
     
 }
 
-.cateWrap ul .navLink{
+.cateWrap ul{
     text-decoration: none;
 }
 
@@ -74,6 +74,14 @@
     box-shadow: gray 5px 5px 10px;
     position: relative;
     color: white;
+    cursor: pointer;
+
+    /*드래그 방지*/
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+    /*--------*/
 }   
 
 .cateWrap ul li p{
