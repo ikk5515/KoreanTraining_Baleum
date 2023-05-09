@@ -1,15 +1,47 @@
 .viewWrap {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100vw;
     height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100000;
 }
 
 .viewWrap .view{
+    position: relative;
+    top: calc(50% - 40vh);
+    left: calc(50% - 35vw);
     width: 70vw;
-    height: 73vh;
+    height: 75vh;
     background-color: rgb(232, 237, 240);
     border-radius: 50px;
+}
+
+.viewWrap .view .xWrap{
     position: absolute;
-    top: 15vh;
-    left: calc(50% - 35vw);
+    top: 2.5vh;
+    right: 1.5vw;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    z-index: 100;
+}
+
+.viewWrap .view .xWrap span{
+    position: absolute;
+    display:inline-block;
+    width: 24px;
+    height: 3px;
+    top: calc(50% - 2px);
+    left: calc(50% - 12px);
+    background-color: white;
+    z-index: 1;
+}
+.viewWrap .view .xWrap .x1{
+    transform: rotate(45deg);
+}
+.viewWrap .view .xWrap .x2{
+    transform: rotate(-45deg);
 }
