@@ -13,12 +13,45 @@ public class DataController {
     private final ScriptService scriptService;
 
 
-    @GetMapping("/api/articles")
+    @GetMapping("/api/daily")
     @ResponseBody
-    public String dataTrans() throws JSONException {
+    public String dailyDataTrans() throws JSONException {
         JSONArray jsonArray = new JSONArray();
-        for (int i = 0; i < scriptService.selectAllScript().size(); i++) {
-            jsonArray.put(scriptService.selectAllScript().get(i));
+        for (int i = 0; i < scriptService.selectDailyScript().size(); i++) {
+            jsonArray.put(scriptService.selectDailyScript().get(i));
+        }
+        System.out.println("jsonArray = " + jsonArray);
+        return jsonArray.toString();
+    }
+
+    @GetMapping("/api/business")
+    @ResponseBody
+    public String businessDataTrans() throws JSONException {
+        JSONArray jsonArray = new JSONArray();
+        for (int i = 0; i < scriptService.selectBusinessScript().size(); i++) {
+            jsonArray.put(scriptService.selectBusinessScript().get(i));
+        }
+        System.out.println("jsonArray = " + jsonArray);
+        return jsonArray.toString();
+    }
+
+    @GetMapping("/api/movie")
+    @ResponseBody
+    public String movieDataTrans() throws JSONException {
+        JSONArray jsonArray = new JSONArray();
+        for (int i = 0; i < scriptService.selectMovieScript().size(); i++) {
+            jsonArray.put(scriptService.selectMovieScript().get(i));
+        }
+        System.out.println("jsonArray = " + jsonArray);
+        return jsonArray.toString();
+    }
+
+    @GetMapping("/api/drama")
+    @ResponseBody
+    public String dramaDataTrans() throws JSONException {
+        JSONArray jsonArray = new JSONArray();
+        for (int i = 0; i < scriptService.selectDramaScript().size(); i++) {
+            jsonArray.put(scriptService.selectDramaScript().get(i));
         }
         System.out.println("jsonArray = " + jsonArray);
         return jsonArray.toString();

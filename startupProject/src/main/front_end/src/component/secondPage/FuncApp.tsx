@@ -66,11 +66,11 @@ export default function FuncApp(){
     }
 
     useEffect(() => {
-        axios.get('http://localhost:8080/api/articles')
+        axios.get('http://localhost:8080/api/daily')
             .then(response => setTest(response.data))
             .catch(error => console.log(error))
     },[]);
-    console.log('백앤드에서 받아온 데이터 : ' + test);
+    console.log('백앤드에서 받아온 daily 데이터 : ' + test);
 
     // @ts-ignore
     return(
