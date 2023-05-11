@@ -8,6 +8,7 @@ export default function DataView(props:{scClick:number[], ChangeScClick:any, dat
     const [hover, setHover] = useState(0);
     const [xclick, setxclick] = useState(0);
 
+
     const handleXicon = () => {
         const value = hover ? 0 : 1;
         setHover(value);
@@ -20,6 +21,14 @@ export default function DataView(props:{scClick:number[], ChangeScClick:any, dat
         }
         return style;
     }
+
+    function findeClickSc(e:number):boolean{
+        if(e === 1) return true;
+        return false;
+    }
+    // @ts-ignore
+    const selectedSc:string = props.data[props.scClick.findIndex(findeClickSc)].script;
+
     return(
         <div className='viewWrap'>
             <div className='view'>
@@ -27,7 +36,10 @@ export default function DataView(props:{scClick:number[], ChangeScClick:any, dat
                     <span className='x1' style={xStyle()}></span>
                     <span className='x2' style={xStyle()}></span>
                 </div>
-                <Recorder/>
+                <div className='scDataView'>
+                    {selectedSc}
+                </div>
+                <Recorder scClick={props.scClick} ChangeScClick={props.ChangeScClick} data={props.data} selectedSc={selectedSc}/>
             </div>
         </div>
     )
