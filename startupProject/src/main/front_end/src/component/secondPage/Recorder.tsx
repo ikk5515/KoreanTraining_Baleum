@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import './Recorder.css';
 import WavEncoder from 'wav-encoder';
 
-function Recorder() {
+function Recorder(props:{scClick:number[], ChangeScClick:any, data:{ id?: number, script?: string }[], selectedSc:string}) {
   const [recording, setRecording] = useState<boolean>(false);
   const [audioURL, setAudioURL] = useState<string>('');
   const recorderRef = useRef<MediaRecorder | null>(null);
@@ -34,6 +34,7 @@ function Recorder() {
         setAudioURL(url);
         const formData = new FormData();
         formData.append('audio', wavBlob, 'recording.wav');
+        formData.append('script', props.selectedSc );
         fetch('/upload', { method: 'POST', body: formData });
       });
 

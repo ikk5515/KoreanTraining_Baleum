@@ -43,8 +43,12 @@ export default function SubDataList(props:{click:number[], ChangeClick:any, data
     };
 
     const viewData = (idx:number) => {
-        scClick.fill(0);
         scClick[idx] = 1;
+        for(let i=0; i<scClick.length; i++){
+            if(i !== idx){
+                scClick[i] = 0;
+            }
+        }
         setScClick([...scClick]);
     }
 
