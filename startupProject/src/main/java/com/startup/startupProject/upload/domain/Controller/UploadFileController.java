@@ -32,7 +32,7 @@ public class UploadFileController {
     }
 
     @PostMapping("/upload")
-    public FileUploadResponse uploadFile(@RequestParam("audio") MultipartFile file) throws IOException, UnsupportedAudioFileException {
+    public FileUploadResponse uploadFile(@RequestParam("audio") MultipartFile file, @RequestParam("script") String objName) throws IOException, UnsupportedAudioFileException {
         String fileName = fileUploadDownloadService.storeFile(file);
         File audioFile = new File("src/main/resources/audio/"+fileName);
         String audioFileName = wavToRaw.SaveRaw(fileName, audioFile);
@@ -42,8 +42,6 @@ public class UploadFileController {
         Path path = Paths.get(audioFileName);
         String audioFileFullMame = path.getName(path.getNameCount() - 1).toString();
 
-        // 임시 데이터
-        String objName = "안녕하세요 김인기입니다.";
 
         double score = etriapiService.etriApi(audioFileName, objName);
         score = Math.round(score*100)/100.0;
