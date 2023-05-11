@@ -7,5 +7,5 @@ import org.apache.ibatis.type.Alias;
 @Alias("drama")
 public class drama {
     private Long DramaNo;
-    private String DraScript;
+    private String DRScript;
 }

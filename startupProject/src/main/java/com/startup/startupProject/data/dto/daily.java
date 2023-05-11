@@ -7,5 +7,5 @@ import org.apache.ibatis.type.Alias;
 @Alias("daily")
 public class daily {
     private Long DAILYNO;
-    private String DSCRIPT;
+    private String DASCRIPT;
 }
