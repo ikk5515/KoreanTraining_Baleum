@@ -6,7 +6,7 @@
 <mapper namespace="com.startup.startupProject.data.mapper.ScriptMapper">
 
     <select id="selectDailyScript" resultType="daily">
-        SELECT dailyno, dscript from daily
+        SELECT dailyno, dascript from daily
     </select>
 
     <select id="selectBusinessScript" resultType="business">
