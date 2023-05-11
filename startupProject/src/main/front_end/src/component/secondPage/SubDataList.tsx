@@ -66,7 +66,7 @@ export default function SubDataList(props:{click:number[], ChangeClick:any, data
                         <>
                             <li key={item.id} onClick={()=>{
                                 viewData(i);
-                            }}>{item.script}</li>
+                            }}><p className='scP'>{item.script}</p></li>
                             <div className='wheelP'>Use the mouse wheel!</div>
                         </>
                     )) : undefined
