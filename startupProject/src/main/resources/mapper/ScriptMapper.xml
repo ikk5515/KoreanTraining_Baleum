@@ -18,6 +18,6 @@
     </select>
 
     <select id="selectDramaScript" resultType="drama">
-        SELECT DramaNo, DraScript from drama
+        SELECT DramaNo, DrScript from drama
     </select>
 </mapper>
