@@ -40,9 +40,9 @@
     font-size: 1.5em;
     width: 250px;
     height: 300px;
-    line-height: 50%;
     background-color: #0554f2;
     margin: 0 1vw;
+    padding: 0;
     color: white;
 }
 
@@ -51,6 +51,14 @@
 }
 .subDataWrap li:last-of-type{
     margin: 0 5vw 0 1vw;
+}
+
+.subDataWrap li .scP{
+    position: inherit;
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    font-size: 1em;
 }
 
 .wheelP{
