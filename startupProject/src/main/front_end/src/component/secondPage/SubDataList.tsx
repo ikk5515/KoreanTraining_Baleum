@@ -1,22 +1,16 @@
 import React, {useEffect, useRef, useState} from 'react';
 import './SubDataList.css';
-import data from '../../jData/categoryData.json';
+import titleData from '../../jData/categoryData.json';
 import DataView from "./DataView";
 
 export default function SubDataList(props:{click:number[], ChangeClick:any, data:{ id?: number, script?: string }[]}){
-    const [filteredText, setFilteredText] = useState<{id?: number, script?: string}[]>([{id:0, script:''}]);
     const [filteredTitle, setFilteredTitle] = useState([{id:0, title:''}]);
     const scrollRef = useRef<HTMLDivElement>(null);
     const noneChoose: string = '👈 Select Category you want!';
     const [scClick, setScClick] = useState<number[]>(Array(props.data.length).fill(0));
-    const [viewIndex, setViewIndex] = useState();
-    // useEffect(()=>{
-    //     const filteredList = props.data.filter((item, i) => props.click[i] === 1);
-    //     console.log(`실제 데이터 : ${filteredList}`);
-    //     setFilteredText(filteredList);
-    // },[props.click]);
+
     useEffect(() => {
-        const filteredT = data.property.filter((item, i) => props.click[i] === 1);
+        const filteredT = titleData.property.filter((item, i) => props.click[i] === 1);
         setFilteredTitle(filteredT);
     },[props.click]);
     useEffect(() => {
