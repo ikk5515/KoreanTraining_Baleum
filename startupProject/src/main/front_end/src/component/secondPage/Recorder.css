@@ -1,11 +1,11 @@
-.recordWrap{
-    width: 82vw;
-    height: 20vh;
-}
+/*.recordWrap{*/
+/*    width: 82vw;*/
+/*    height: 20vh;*/
+/*}*/
 
 .recordWrap button{
     position: absolute;
-    top: 69vh;
+    top: 82%;
     left: calc(50% - 125px);
     border: none;
     border-radius: 50px;
@@ -18,12 +18,21 @@
     display: inline-block;
 }
 
+.recordWrap button .stop{
+    position: static;
+    font-size: 1em;
+    width: 200px;
+    text-align: right;
+    margin: 0;
+    padding: 0;
+}
+
 .audioWrap{
 
 }
 
 .audioWrap audio{
-    display: inline-block;
+    display: none;
     width: 300px;
     position: absolute;
     left: calc(50% - 150px);

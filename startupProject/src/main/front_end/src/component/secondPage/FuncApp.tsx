@@ -3,14 +3,8 @@ import React, {useState, useEffect} from 'react';
 import FuncList from './FuncList';
 import BgElement from '../firstPage/BgElement';
 import './FuncApp.css'
-import DataView from './DataView';
 import {useLocation} from "react-router-dom";
 import axios from "axios";
-
-// 프론트에서 클릭값을 백으로 넘겨주면 그에 맞는 데이터를 배열로 프로트로 보내줌
-// 즉 모든 카테고리의 데이터를 보내느 것이 아님
-// 클릭 값을 보낸다 -> 백에서 해당 데이터베이스를 select해서 프로트트로 문자배열로 전달한다
-// -> 받은 데이터로 subDataList의 값을 useEffect로 변경하여 랜더링한다.
 
 function FuncApp(){
     const location = useLocation();
