@@ -32,7 +32,7 @@ public class UploadFileController {
     }
 
     @PostMapping("/upload")
-    public FileUploadResponse uploadFile(@RequestParam("audio") MultipartFile file, @RequestParam("script") String objName) throws IOException, UnsupportedAudioFileException {
+    public String uploadFile(@RequestParam("audio") MultipartFile file, @RequestParam("script") String objName) throws IOException, UnsupportedAudioFileException {
         String fileName = fileUploadDownloadService.storeFile(file);
         File audioFile = new File("src/main/resources/audio/"+fileName);
         String audioFileName = wavToRaw.SaveRaw(fileName, audioFile);
@@ -59,6 +59,6 @@ public class UploadFileController {
                 .path(fileName)
                 .toUriString();
 
-        return new FileUploadResponse(fileName, fileDownloadUri, file.getContentType(), file.getSize());
+        return scoreString;
     }
 }
