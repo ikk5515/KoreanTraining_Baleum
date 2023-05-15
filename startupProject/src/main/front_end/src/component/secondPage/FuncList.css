@@ -7,7 +7,7 @@
 .listWrap .funcList{
     margin: 0 0 0 0;
     padding: 90px 0 0 0;
-    z-index: 100;
+    z-index: 1000;
     position: fixed;
     font-family: 'neuwelt_Medium';
     width: 15vw;
