@@ -1,13 +1,14 @@
-import React, { useState, useRef } from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import './Recorder.css';
 import WavEncoder from 'wav-encoder';
 import OnAir from './Animation/OnAir';
+import ScoreView from "./ScoreView";
 
 function Recorder(props:{scClick:number[], ChangeScClick:any, data:{ id?: number, script?: string }[], selectedSc:string}) {
     const [recording, setRecording] = useState<boolean>(false);
     const [audioURL, setAudioURL] = useState<string>('');
     const recorderRef = useRef<MediaRecorder | null>(null);
-    const [isRecording, setIsRecording] = useState();
+    const [showScore, setShowScore] = useState<boolean>(false);
 
     const handleStartRecording = async () => {
         try {
@@ -54,20 +55,9 @@ function Recorder(props:{scClick:number[], ChangeScClick:any, data:{ id?: number
         if (recorder) {
             recorder.stop();
             setRecording(false);
+            setShowScore(true);
         }
     };
-
-    // const handleSaveRecording = () => {
-    //   const downloadLink = document.createElement('a');
-    //   downloadLink.href = audioURL;
-    //   downloadLink.download = 'recording.wav';
-    //
-    //   // 클릭하여 다운로드합니다.
-    //   downloadLink.click();
-    //
-    //   // URL 객체를 해제합니다.
-    //   URL.revokeObjectURL(audioURL);
-    // };
 
     function stopBtnStyle() {
         let sObj = {
@@ -81,22 +71,28 @@ function Recorder(props:{scClick:number[], ChangeScClick:any, data:{ id?: number
     }
 
     return (
-        <div className='recordWrap'>
-            {recording ? (
-                <button onClick={handleStopRecording} style={stopBtnStyle()}>
-                    <OnAir />
-                    <p className='stop'>Stop Recording</p>
-                </button>
-            ) : (
-                <button onClick={handleStartRecording}>Start Recording</button>
-            )}
-            {audioURL && (
-                <div className='audioWrap'>
-                    <audio src={audioURL} controls />
-                    {/*<button onClick={handleSaveRecording}>Save Recording</button>*/}
-                </div>
-            )}
-        </div>
+        <>
+            <div className='recordWrap'>
+                {recording ? (
+                    <button onClick={handleStopRecording} style={stopBtnStyle()}>
+                        <OnAir/>
+                        <p className='stop'>Stop Recording</p>
+                    </button>
+                ) : (
+                    <button onClick={handleStartRecording}>Start Recording</button>
+                )}
+                {audioURL && (
+                    <div className='audioWrap'>
+                        <audio src={audioURL} controls/>
+                        {/*<button onClick={handleSaveRecording}>Save Recording</button>*/}
+                    </div>
+                )}
+            </div>
+            {showScore ? (
+                <ScoreView setShowScore={setShowScore}/>
+            ) : undefined
+            }
+        </>
     );
 }
 
