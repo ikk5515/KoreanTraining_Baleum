@@ -2,13 +2,11 @@ package com.startup.startupProject.upload.domain.Controller;
 
 import com.startup.startupProject.Service.ETRIapiService;
 import com.startup.startupProject.Service.WavToRaw;
-import com.startup.startupProject.upload.domain.dto.FileUploadResponse;
 import com.startup.startupProject.upload.service.FileDeleteService;
 import com.startup.startupProject.upload.service.FileUploadDownloadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.File;
@@ -52,12 +50,6 @@ public class UploadFileController {
         System.out.println("objName = " + objName);
         System.out.println("scoreString = " + scoreString);
         System.out.println();
-
-
-        String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
-                .path("/audio")
-                .path(fileName)
-                .toUriString();
 
         return scoreString;
     }
