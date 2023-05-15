@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, {useEffect, useRef, useState} from 'react';
 import './SubDataList.css';
 import titleData from '../../jData/categoryData.json';
@@ -8,6 +9,7 @@ export default function SubDataList(props:{click:number[], ChangeClick:any, data
     const scrollRef = useRef<HTMLDivElement>(null);
     const noneChoose: string = '👈 Select Category you want!';
     const [scClick, setScClick] = useState<number[]>(Array(props.data.length).fill(0));
+    const [liHover, setLiHover] = useState<number>(-1);
 
     useEffect(() => {
         const filteredT = titleData.property.filter((item, i) => props.click[i] === 1);
@@ -49,6 +51,25 @@ export default function SubDataList(props:{click:number[], ChangeClick:any, data
     const ChangeScClick = () => {
         setScClick(Array(props.data.length).fill(0));
     }
+
+    function mouseLiHover(idx : number){
+        setLiHover(idx);
+    }
+    function mouseLiOut(){
+        setLiHover(-1);
+    }
+
+    const liStyle = (idx: number) => {
+        if(liHover === idx) {
+            let obj = {
+                top: '-15%',
+                left: '-40%'
+            }
+            return obj;
+        }
+        return undefined;
+    }
+
     return(
         <div className='SDLwrap' ref={scrollRef} onWheel={handleWheel}>
             <p>
@@ -64,7 +85,14 @@ export default function SubDataList(props:{click:number[], ChangeClick:any, data
                         <>
                             <li key={item.id} onClick={()=>{
                                 viewData(i);
-                            }}><p className='scP'>{item.script}</p></li>
+                            }} onMouseOver={() => mouseLiHover(i)} onMouseOut={mouseLiOut}>
+                                <div className='tContentWrap'>
+                                    <span>{i+1}</span>
+                                    <p className='scP'>{item.script}</p>
+                                    <span>{i+1}</span>
+                                </div>
+                                <div className='elem' style={liStyle(i)}></div>
+                            </li>
                             <div className='wheelP'>Use the mouse wheel!</div>
                         </>
                     )) : undefined

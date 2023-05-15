@@ -7,6 +7,7 @@ import Slidemenu from './component/Slidemenu';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import FuncApp from './component/secondPage/FuncApp';
 import DataView from "./component/secondPage/DataView";
+import ScoreView from "./component/secondPage/ScoreView";
 
 function App() {
     return (
