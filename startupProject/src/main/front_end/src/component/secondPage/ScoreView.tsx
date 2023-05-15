@@ -3,28 +3,21 @@ import './ScoreView.css';
 import axios from "axios";
 // @ts-ignore
 
-export default function ScoreView(props:{setShowScore}){
+export default function ScoreView(props:{setShowScore, score:number}){
     const [count, setCount] = useState<number>(0);
-    const [score, setScore] = useState<number>(0);
 
     useEffect(() => {
         let currentNumber = 0;
         const interval = setInterval(() => {
-            if (currentNumber >= score) {
+            if (currentNumber >= props.score) {
                 clearInterval(interval);
             } else {
-                currentNumber += 0.1;
-                setCount(Number(currentNumber.toFixed(1)));
+                currentNumber += 0.01;
+                setCount(Number(currentNumber.toFixed(2)));
             }
-        }, 35);
+        }, 1);
         return () => clearInterval(interval);
-    }, [score]);
-
-    useEffect(() => {
-        axios.post('http://localhost:8080/upload')
-            .then(response => setScore(parseFloat(response.data)))
-            .catch(error => console.log(error))
-    }, [])
+    }, [props.score]);
 
     function hideScore(){
         props.setShowScore(false);

@@ -1,4 +1,4 @@
-import React, {useState, useRef, useEffect} from 'react';
+import React, {useState, useRef} from 'react';
 import './Recorder.css';
 import WavEncoder from 'wav-encoder';
 import OnAir from './Animation/OnAir';
@@ -9,6 +9,7 @@ function Recorder(props:{scClick:number[], ChangeScClick:any, data:{ id?: number
     const [audioURL, setAudioURL] = useState<string>('');
     const recorderRef = useRef<MediaRecorder | null>(null);
     const [showScore, setShowScore] = useState<boolean>(false);
+    const [score, setScore] = useState<number>(0);
 
     const handleStartRecording = async () => {
         try {
@@ -38,7 +39,9 @@ function Recorder(props:{scClick:number[], ChangeScClick:any, data:{ id?: number
                 const formData = new FormData();
                 formData.append('audio', wavBlob, 'recording.wav');
                 formData.append('script', props.selectedSc );
-                fetch('/upload', { method: 'POST', body: formData });
+                const response = await fetch('/upload', { method: 'POST', body: formData });
+                const responseData = await response.text();
+                setScore(parseFloat(responseData));
             });
 
             recorder.start();
@@ -89,7 +92,7 @@ function Recorder(props:{scClick:number[], ChangeScClick:any, data:{ id?: number
                 )}
             </div>
             {showScore ? (
-                <ScoreView setShowScore={setShowScore}/>
+                <ScoreView setShowScore={setShowScore} score={score}/>
             ) : undefined
             }
         </>
