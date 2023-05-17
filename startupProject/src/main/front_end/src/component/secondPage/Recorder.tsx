@@ -9,7 +9,7 @@ function Recorder(props:{scClick:number[], ChangeScClick:any, data:{ id?: number
     const [audioURL, setAudioURL] = useState<string>('');
     const recorderRef = useRef<MediaRecorder | null>(null);
     const [showScore, setShowScore] = useState<boolean>(false);
-    const [score, setScore] = useState<number>(0);
+    const [score, setScore] = useState<number>(-1);
 
     const handleStartRecording = async () => {
         try {
@@ -92,7 +92,7 @@ function Recorder(props:{scClick:number[], ChangeScClick:any, data:{ id?: number
                 )}
             </div>
             {showScore ? (
-                <ScoreView setShowScore={setShowScore} score={score}/>
+                <ScoreView setShowScore={setShowScore} score={score} ChangeScClick={props.ChangeScClick}/>
             ) : undefined
             }
         </>
