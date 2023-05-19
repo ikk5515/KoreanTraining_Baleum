@@ -3,13 +3,15 @@ import React, {useEffect, useRef, useState} from 'react';
 import './SubDataList.css';
 import titleData from '../../jData/categoryData.json';
 import DataView from "./DataView";
+import PartLoading from "./Animation/PartLoading";
 
-export default function SubDataList(props:{click:number[], ChangeClick:any, data:{ id?: number, script?: string }[]}){
+export default function SubDataList(props:{click:number[], ChangeClick:any, data:{ id?: number, script?: string }[] | []}){
     const [filteredTitle, setFilteredTitle] = useState([{id:0, title:''}]);
     const scrollRef = useRef<HTMLDivElement>(null);
     const noneChoose: string = '👈 Select Category you want!';
     const [scClick, setScClick] = useState<number[]>(Array(props.data.length).fill(0));
     const [liHover, setLiHover] = useState<number>(-1);
+    const [loading, setLoading] = useState<boolean>(false);
 
     useEffect(() => {
         const filteredT = titleData.property.filter((item, i) => props.click[i] === 1);
@@ -21,6 +23,11 @@ export default function SubDataList(props:{click:number[], ChangeClick:any, data
             document.removeEventListener('mousedown', clickOutSide);
         };
     }, []);
+
+    useEffect(() => {
+        setLoading(props.data.length === 0 || props.data === undefined);
+    }, [props.data]);
+
     function handleWheel(e:any){
         const scroll = scrollRef.current;
         const scrollPosition = scroll?.scrollLeft || 0;
@@ -31,6 +38,7 @@ export default function SubDataList(props:{click:number[], ChangeClick:any, data
             });
         }
     };
+
     const clickOutSide = (event: any) => {
         const modal = document.querySelector('.view');
         if (modal && !modal.contains(event.target)) {
@@ -104,6 +112,7 @@ export default function SubDataList(props:{click:number[], ChangeClick:any, data
                 <DataView scClick={scClick} ChangeScClick={ChangeScClick} data={props.data}/>
             ) : undefined
             }
+            {loading ? <PartLoading /> : undefined}
         </div>
     )
 }
