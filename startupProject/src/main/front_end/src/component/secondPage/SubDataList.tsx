@@ -112,6 +112,7 @@ export default function SubDataList(props:{click:number[], ChangeClick:any, data
                 <DataView scClick={scClick} ChangeScClick={ChangeScClick} data={props.data}/>
             ) : undefined
             }
+
             {loading ? <PartLoading /> : undefined}
         </div>
     )
