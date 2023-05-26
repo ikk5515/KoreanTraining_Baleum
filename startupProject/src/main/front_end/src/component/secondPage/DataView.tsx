@@ -2,14 +2,14 @@
 import React, {useEffect, useState} from 'react';
 import './DataView.css';
 import Recorder from './Recorder';
+import TTSView from "./TTSView";
 
 export default function DataView(props:{scClick:number[], ChangeScClick:any, data:{ id?: number, script?: string }[]}){
     const [hover, setHover] = useState(0);
-    const [xclick, setxclick] = useState(0);
 
 // test!!! ---------------------------------------------------
 //     const testData = [
-//         "오늘하루 고생많았어요. 내일봐요~!"
+//         "오늘하루 고생많았어요. 내일봐요~!오늘하루 고생많았어요. 내일봐요~!"
 //     ]
 // test!!! ---------------------------------------------------
 
@@ -40,12 +40,18 @@ export default function DataView(props:{scClick:number[], ChangeScClick:any, dat
                     <span className='x1' style={xStyle()}></span>
                     <span className='x2' style={xStyle()}></span>
                 </div>
-                <div className='scDataView'>
-                    <span>Let's Do it!</span>
-                    <div className='scTxt'>
-                        <p>{selectedSc}</p>
-                        <p>[ 발음 텍스트 ]</p>
+                <span>Let's Do it!</span>
+                <div className='flexWrap'>
+                    <div className='scDataView'>
+                        <div className='scTxt'>
+                            <p>{selectedSc}</p>
+                            <div className='ttsWrap'>
+                                <TTSView selectedSc={selectedSc}/>
+                            </div>
+                            <p>hear the correct pronunciation</p>
+                        </div>
                     </div>
+
                 </div>
                 <Recorder scClick={props.scClick} ChangeScClick={props.ChangeScClick} data={props.data} selectedSc={selectedSc}/>
                 <div className='se'></div>
