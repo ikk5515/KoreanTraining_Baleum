@@ -10,6 +10,19 @@ export default function ScoreView(props:{ChangeScClick:any, setShowScore, score:
     const [showContent, setShowContent] = useState<boolean>(false);
     const [scoreText, setScoreText] = useState<string>('');
     const [scoreDescription, setScoreDescription] = useState<string>('');
+    const [bfTop, setBfTop] = useState<number>(100);
+
+    useEffect(()=>{
+        const targetTop = Math.round(100 - (count / 5) * 100);
+        const interval = setInterval(()=>{
+            if(bfTop <= targetTop){
+                clearInterval(interval);
+            }else{
+                setBfTop((prev) => prev - 1);
+            }
+        }, 1);
+        return ()=>clearInterval(interval);
+    }, [count]);
 
     useEffect(() => {
         let currentNumber = 0;
@@ -62,17 +75,28 @@ export default function ScoreView(props:{ChangeScClick:any, setShowScore, score:
                             <div className='scTx' >
                                 <p>{scoreText}</p>
                                 <p>{scoreDescription}</p>
-                                <p>{count}</p>
+                            </div>
+                            <div className='flexWrap'>
+                                <div className='scWrap'>
+                                    {/*<p>{count}</p>*/}
+                                    <p>Got</p>
+                                    <p>{count}</p>
+                                    <p>Points</p>
+                                    <div className='backFill'></div>
+                                    <div className='backFill2' style={{ top: `${bfTop}%` }}></div>
+                                </div>
+                                <div className='sttWrap'>
+                                    <div className='wave'></div>
+                                    <div className='wave'></div>
+                                </div>
                             </div>
                             <button onClick={props.ChangeScClick}>Go back</button>
-                            <div className='wave'></div>
-                            <div className='wave'></div>
-                            <div>
-                                <div className='square sq1'></div>
-                                <div className='square sq2'></div>
-                                <div className='square sq3'></div>
-                                <div className='square sq4'></div>
-                            </div>
+                            {/*<div>*/}
+                            {/*    <div className='square sq1'></div>*/}
+                            {/*    <div className='square sq2'></div>*/}
+                            {/*    <div className='square sq3'></div>*/}
+                            {/*    <div className='square sq4'></div>*/}
+                            {/*</div>*/}
                         </div>
                     )}
                 </>
