@@ -78,8 +78,7 @@ public class ETRIapiService {
             int byteRead = is.read(buffer);
             responBody = new String(buffer);
 
-            System.out.println("[responseCode] " + responseCode);
-            System.out.println("[responBody] " + responBody);
+            System.out.println("ETRIapiService [responseCode] = " + responseCode);
 
             String[] list = responBody.split("score\":");
             for (String s : list) {
@@ -87,7 +86,6 @@ public class ETRIapiService {
             }
 
             String scoreString = list[1].substring(1, list[1].length() - 3);
-            System.out.println("scoreString = " + scoreString);
 
             try {
                 responseScore = Double.parseDouble(scoreString);
