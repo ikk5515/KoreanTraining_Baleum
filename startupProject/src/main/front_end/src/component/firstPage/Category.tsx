@@ -29,7 +29,7 @@ export default function Category(){
             <div className='blueCircle'></div>
             <div className='textArea'>
                 <h1>Check your pronunciation skills!</h1>
-                <p>BBALKING</p>
+                <p>Baleum</p>
                 <p>provides you with various text for grading.</p>
                 <p>Choose the theme you want!</p>
             </div>
