@@ -1,34 +1,28 @@
 package com.startup.startupProject.Service;
 
 import java.io.DataOutputStream;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.Map;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Base64;
-import java.util.HashMap;
-import java.util.Map;
-
-import org.springframework.stereotype.Service;
 
 import com.google.gson.Gson;
+import org.springframework.stereotype.Service;
 
 @Service
-public class ETRIapiService {
-    public static double etriApi(String audioName, String objString) {
-//		SpringApplication.run(EtriApiTestApplication.class, args);
-        String openApiURL = "http://aiopen.etri.re.kr:8000/WiseASR/PronunciationKor";   //한국어
+public class ETRIapiScriptService {
+
+    public static String etriScriptService(String audioName) {
+        String openApiURL = "http://aiopen.etri.re.kr:8000/WiseASR/Recognition";
         String accessKey = "b85ea7eb-7a41-4e66-b0cc-8a703d6ce2cb";    // 발급받은 API Key
         String languageCode = "korean";     // 언어 코드
-        String script = objString;    // 평가 대본
         String audioContents = null;
-        Double responseScore = 0.0;
-        File audioFile = new File(audioName);
 
         Gson gson = new Gson();
 
@@ -37,16 +31,14 @@ public class ETRIapiService {
 
         try {
             Path path = Paths.get(audioName);
-            System.out.println("path = " + path);
             byte[] audioBytes = Files.readAllBytes(path);
             audioContents = Base64.getEncoder().encodeToString(audioBytes);
         } catch (IOException e) {
             e.printStackTrace();
-            return 0.0;
+            return null;
         }
 
         argument.put("language_code", languageCode);
-        argument.put("script", script);
         argument.put("audio", audioContents);
 
         request.put("argument", argument);
@@ -56,7 +48,7 @@ public class ETRIapiService {
         String responBody = null;
         try {
             url = new URL(openApiURL);
-            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            HttpURLConnection con = (HttpURLConnection)url.openConnection();
             con.setRequestMethod("POST");
             con.setDoOutput(true);
             con.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
@@ -66,11 +58,9 @@ public class ETRIapiService {
             con.setReadTimeout(3000);
 
             DataOutputStream wr = new DataOutputStream(con.getOutputStream());
-            wr.write(gson.toJson(request).getBytes(StandardCharsets.UTF_8));
+            wr.write(gson.toJson(request).getBytes("UTF-8"));
             wr.flush();
             wr.close();
-
-            System.out.println("Please wait for a while.");
 
             responseCode = con.getResponseCode();
             InputStream is = con.getInputStream();
@@ -78,28 +68,12 @@ public class ETRIapiService {
             int byteRead = is.read(buffer);
             responBody = new String(buffer);
 
-            System.out.println("ETRIapiService [responseCode] = " + responseCode);
+            System.out.println("ETRIapiScriptService [responseCode] = " + responseCode);
 
-            String[] list = responBody.split("score\":");
-            for (String s : list) {
-                System.out.println(s);
-            }
-
-            String scoreString = list[1].substring(1, list[1].length() - 3);
-
-            try {
-                responseScore = Double.parseDouble(scoreString);
-            } catch (NumberFormatException e) {
-                e.printStackTrace();
-                responseScore = 0.0;
-                return responseScore;
-            }
         } catch (IOException e) {
             e.printStackTrace();
-            responseScore = 0.0;
-            return responseScore;
+            return null;
         }
-        return responseScore;
+        return responBody.substring(98, responBody.length()-3);
     }
 }
-

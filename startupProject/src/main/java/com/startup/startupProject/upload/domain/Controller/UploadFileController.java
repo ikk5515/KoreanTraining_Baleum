@@ -1,5 +1,6 @@
 package com.startup.startupProject.upload.domain.Controller;
 
+import com.startup.startupProject.Service.ETRIapiScriptService;
 import com.startup.startupProject.Service.ETRIapiService;
 import com.startup.startupProject.Service.WavToRaw;
 import com.startup.startupProject.upload.service.FileDeleteService;
@@ -21,12 +22,16 @@ public class UploadFileController {
     private final FileDeleteService fileDeleteService;
     private final WavToRaw wavToRaw;
     private final ETRIapiService etriapiService;
+
+    private final ETRIapiScriptService etriapiScriptService;
+
     @Autowired
-    public UploadFileController(FileUploadDownloadService fileUploadDownloadService, FileDeleteService fileDeleteService, WavToRaw wavToRaw, ETRIapiService etriapiService) {
+    public UploadFileController(FileUploadDownloadService fileUploadDownloadService, FileDeleteService fileDeleteService, WavToRaw wavToRaw, ETRIapiService etriapiService, ETRIapiScriptService etriapiScriptService) {
         this.fileUploadDownloadService = fileUploadDownloadService;
         this.fileDeleteService = fileDeleteService;
         this.wavToRaw = wavToRaw;
         this.etriapiService = etriapiService;
+        this.etriapiScriptService = etriapiScriptService;
     }
 
     @PostMapping("/upload")
@@ -35,12 +40,13 @@ public class UploadFileController {
         File audioFile = new File("src/main/resources/audio/"+fileName);
         String audioFileName = wavToRaw.SaveRaw(fileName, audioFile);
 
+
         fileDeleteService.deleteFile(fileName);
 
         Path path = Paths.get(audioFileName);
         String audioFileFullMame = path.getName(path.getNameCount() - 1).toString();
 
-
+        String ScriptResult = etriapiScriptService.etriScriptService(audioFileName);
         double score = etriapiService.etriApi(audioFileName, objName);
         score = Math.round(score*100)/100.0;
         String scoreString = Double.toString(score);
@@ -49,8 +55,8 @@ public class UploadFileController {
 
         System.out.println("objName = " + objName);
         System.out.println("scoreString = " + scoreString);
-        System.out.println();
+        System.out.println("ScriptResult = " + ScriptResult);
 
-        return scoreString;
+        return scoreString+" "+ScriptResult;
     }
 }
