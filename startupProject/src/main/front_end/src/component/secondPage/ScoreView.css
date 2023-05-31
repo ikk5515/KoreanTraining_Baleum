@@ -17,7 +17,7 @@
     background-color: white;
     overflow: hidden;
     box-shadow: rgba(255, 255, 255, 0.7) 0px 0px 30px;
-    border:6px solid #b2b2b2;
+
     box-sizing: border-box;
     z-index: 1;
 }
@@ -45,7 +45,6 @@
 }
 .scoreWrap .scoreContent .scTx p:nth-of-type(2){
     font-size: 1.5em;
-    color: #5e5e5e;
     z-index: 1000;
 }
 
@@ -60,7 +59,7 @@
     height: 350px;
     border-radius: 25px;
     background-color: white;
-    box-shadow: lightgrey 0px 0px 5px 5px;
+    box-shadow: grey 0px 5px 10px;
     position: relative;
     overflow: hidden;
     font-family: 'neuwelt_Medium';
@@ -122,15 +121,54 @@
     height: 350px;
     border-radius: 25px;
     background-color: white;
-    box-shadow: lightgrey 0px 0px 5px 5px;
+    box-shadow: grey 0px 5px 10px;
     overflow: hidden;
     position: relative;
 }
 
-.scoreWrap .scoreContent button{
+.scoreWrap .scoreContent .sttWrap .textBox{
+    position: absolute;
+    top: 5%;
+    left: 10%;
+    width: 80%;
+    height: 90%;
+    text-align: center;
+    z-index: 100;
+}
+
+.scoreWrap .scoreContent .sttWrap .textBox .sttp{
+    font-size: 1.5em;
+    position: absolute;
+    display: inline-block;
+    text-align: center;
+    width: fit-content;
+}
+
+.scoreWrap .scoreContent .sttWrap .textBox .sp1{
+    top: 10%;
+    left: 0;
+}
+
+.scoreWrap .scoreContent .sttWrap .textBox .sp2{
+    font-size: 1.75em;
+    left: calc(50% - 150px);
+    top: calc(50% - 75px);
+    width: 300px;
+    height: 150px;
+}
+
+.scoreWrap .scoreContent .sttWrap .textBox .sp3{
+
+}
+
+.scoreWrap .scoreContent .sttWrap .textBox  .ttsBtn{
+    top: 240px;
+}
+
+.scoreWrap .scoreContent .gobackBtn{
     margin: 0 auto;
     position: absolute;
-    top: 500px;
+    top: 510px;
     left: calc(50% - 125px);
     border: none;
     border-radius: 50px;
@@ -236,4 +274,27 @@
     100%{
         transform: translateY(20px);
     }
+}
+
+.bgCir{
+    border-radius: 50%;
+    position: absolute;
+}
+
+.cir1{
+    width: 800px;
+    height: 800px;
+    top: -40%;
+    left: -40%;
+    background-color: #effafc;
+    z-index: -1;
+}
+
+.cir2{
+    width: 1000px;
+    height: 1000px;
+    top: -40%;
+    left: -20%;
+    z-index: -10;
+    background-color: #e4effa;
 }
