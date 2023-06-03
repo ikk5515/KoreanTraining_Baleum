@@ -1,0 +1,99 @@
+.bars {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.bars .bar {
+    width: 5px;
+    height: 2px;
+    margin: 0 5px;
+    border-radius: 10px;
+    background-color: white;
+    animation: up_down 1.5s ease-in-out infinite;
+}
+
+@keyframes up_down {
+    0%,
+    100% {
+        height: 2px;
+    }
+    50% {
+        height: 40px;
+    }
+}
+
+.bars .bar:nth-child(1) {
+    background-color: white;
+    animation-delay: 0s;
+    margin: 0 5px 0 0;
+}
+
+.bars .bar:nth-child(2) {
+    background-color: white;
+    animation-delay: 0.2s;
+}
+
+.bars .bar:nth-child(3) {
+    background-color: white;
+    animation-delay: 0.4s;
+}
+
+.bars .bar:nth-child(4) {
+    background-color: white;
+    animation-delay: 0.6s;
+}
+
+.bars .bar:nth-child(5) {
+    background-color: white;
+    animation-delay: 0.8s;
+}
+
+.bars .bar:nth-child(6) {
+    background-color: white;
+    animation-delay: 1.0s;
+}
+
+.bars .bar:nth-child(7) {
+    background-color: white;
+    animation-delay: 1.2s;
+}
+
+.bars .bar:nth-child(8) {
+    background-color: white;
+    animation-delay: 1.4s;
+}
+
+.bars .bar:nth-child(9) {
+    background-color: white;
+    animation-delay: 1.6s;
+}
+
+.bars .bar:nth-child(10) {
+    background-color: white;
+    animation-delay: 1.8s;
+}
+
+.bars .bar:nth-child(11) {
+    background-color: white;
+    animation-delay: 2.0s;
+}
+
+.bars .bar:nth-child(12) {
+    background-color: white;
+    animation-delay: 2.2s;
+}
+
+.bars .bar:nth-child(13) {
+    background-color: white;
+    animation-delay: 2.4s;
+}
+
+.bars .bar:nth-child(14) {
+    background-color: white;
+    animation-delay: 2.6s;
+    margin: 0 0 0 5px;
+}

@@ -1,0 +1,37 @@
+input{
+    display: none;
+}
+
+.ttsBtn{
+    position: relative;
+    width:100px;
+    height: 40px;
+    border: none;
+    font-size: 1.5em;
+    background-color: rgba(0,0,0,0);
+    border-radius: 10px;
+    background-color: rgb(94, 94, 94);
+    font-family: 'neuwelt_Medium';
+    color: rgb(232, 237, 240);
+    transition: 0.5s;
+}
+
+.ttsBtn:hover{
+    background-color: rgb(232, 237, 240);
+    color: black;
+    box-shadow: gray 1px 1px 10px;
+}
+
+.ttsBtn div{display: inline-block;}
+.play{
+    margin: 0 10px 0 0;
+    position: absolute;
+    top: 7%;
+    left: 17%;
+}
+.picon{
+    font-family: 'Courier New', Courier, monospace;
+    position: absolute;
+    top: 18%;
+    left: 68%;
+}

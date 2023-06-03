@@ -1,66 +1,32 @@
+/* eslint-disable */
 import React, {useEffect, useRef, useState} from 'react';
 import './SubDataList.css';
-import data from '../../jData/categoryData.json';
+import titleData from '../../jData/categoryData.json';
+import DataView from "./DataView";
+import PartLoading from "./Animation/PartLoading";
 
-
-
-const text = [
-    [
-        {id: 1, scr: "테스트 인덱스1 1번!"},
-        {id: 2, scr: "테스트 인덱스1 2번!"},
-        {id: 3, scr: "테스트 인덱스1 3번!"},
-        {id: 4, scr: "테스트 인덱스1 4번!"},
-        {id: 1, scr: "테스트 인덱스1 5번!"},
-        {id: 2, scr: "테스트 인덱스1 6번!"},
-        {id: 3, scr: "테스트 인덱스1 7번!"},
-        {id: 4, scr: "테스트 인덱스1 8번!"}
-    ],
-    [
-        {id: 1, scr: "테스트 인덱스2 1번!"},
-        {id: 2, scr: "테스트 인덱스2 2번!"},
-        {id: 3, scr: "테스트 인덱스2 3번!"},
-        {id: 4, scr: "테스트 인덱스2 4번!"},
-        {id: 1, scr: "테스트 인덱스2 5번!"},
-        {id: 2, scr: "테스트 인덱스2 6번!"},
-        {id: 3, scr: "테스트 인덱스2 7번!"},
-        {id: 4, scr: "테스트 인덱스2 8번!"}
-    ],
-    [
-        {id: 1, scr: "테스트 인덱스3 1번!"},
-        {id: 2, scr: "테스트 인덱스3 2번!"},
-        {id: 3, scr: "테스트 인덱스3 3번!"},
-        {id: 4, scr: "테스트 인덱스3 4번!"},
-        {id: 1, scr: "테스트 인덱스3 5번!"},
-        {id: 2, scr: "테스트 인덱스3 6번!"},
-        {id: 3, scr: "테스트 인덱스3 7번!"},
-        {id: 4, scr: "테스트 인덱스3 8번!"}
-    ],
-    [
-        {id: 1, scr: "테스트 인덱스4 1번!"},
-        {id: 2, scr: "테스트 인덱스4 2번!"},
-        {id: 3, scr: "테스트 인덱스4 3번!"},
-        {id: 4, scr: "테스트 인덱스4 4번!"},
-        {id: 1, scr: "테스트 인덱스4 5번!"},
-        {id: 2, scr: "테스트 인덱스4 6번!"},
-        {id: 3, scr: "테스트 인덱스4 7번!"},
-        {id: 4, scr: "테스트 인덱스4 8번!"}
-    ]
-]
-export default function SubDataList(props:{click:number[], ChangeClick:any}){
-    const {click} = props;
-    const [filteredText, setFilteredText] = useState([[{id:0,scr:''}]]);
+export default function SubDataList(props:{click:number[], ChangeClick:any, data:{ id?: number, script?: string }[] | []}){
     const [filteredTitle, setFilteredTitle] = useState([{id:0, title:''}]);
     const scrollRef = useRef<HTMLDivElement>(null);
     const noneChoose: string = '👈 Select Category you want!';
+    const [scClick, setScClick] = useState<number[]>(Array(props.data.length).fill(0));
+    const [liHover, setLiHover] = useState<number>(-1);
+    const [loading, setLoading] = useState<boolean>(false);
 
     useEffect(() => {
-        const filteredList = text.filter((item, i) => click[i] === 1);
-        setFilteredText(filteredList);
-    },[click]);
-    useEffect(() => {
-        const filteredT = data.property.filter((item, i) => click[i] === 1);
+        const filteredT = titleData.property.filter((item, i) => props.click[i] === 1);
         setFilteredTitle(filteredT);
-    },[click]);
+    },[props.click]);
+    useEffect(() => {
+        document.addEventListener('mousedown', clickOutSide);
+        return () => {
+            document.removeEventListener('mousedown', clickOutSide);
+        };
+    }, []);
+
+    useEffect(() => {
+        setLoading(props.data.length === 0 || props.data === undefined);
+    }, [props.data]);
 
     function handleWheel(e:any){
         const scroll = scrollRef.current;
@@ -73,26 +39,81 @@ export default function SubDataList(props:{click:number[], ChangeClick:any}){
         }
     };
 
+    const clickOutSide = (event: any) => {
+        const modal = document.querySelector('.view');
+        if (modal && !modal.contains(event.target)) {
+            setScClick(Array(props.data.length).fill(0));
+        }
+    };
+
+    const viewData = (idx:number) => {
+        scClick[idx] = 1;
+        for(let i=0; i<scClick.length; i++){
+            if(i !== idx){
+                scClick[i] = 0;
+            }
+        }
+        setScClick([...scClick]);
+    }
+
+    const ChangeScClick = () => {
+        setScClick(Array(props.data.length).fill(0));
+    }
+
+    function mouseLiHover(idx : number){
+        setLiHover(idx);
+    }
+    function mouseLiOut(){
+        setLiHover(-1);
+    }
+
+    const liStyle = (idx: number) => {
+        if(liHover === idx) {
+            let obj = {
+                top: '-15%',
+                left: '-40%'
+            }
+            return obj;
+        }
+        return undefined;
+    }
+
     return(
         <div className='SDLwrap' ref={scrollRef} onWheel={handleWheel}>
             <p>
-                {filteredTitle.length > 0 ?
-                    filteredTitle[0].title :
+                {props.click.findIndex((data)=>{return data === 1}) !== -1 ?
+                    filteredTitle[0]?.title :
                     noneChoose
                 }
             </p>
             <p>Choose a sentence that you are confident in pronouncing it</p>
             <ul className='subDataWrap'>
-                {filteredText.length > 0 ? (
-                        filteredText.map((subArray) =>
-                            subArray.map((item) =>
-                                <>
-                                    <li key={item.id}>{item.scr}</li>
-                                    <div className='wheelP'>Use the mouse wheel!</div>
-                                </>
-                            ))) : undefined
+                {props.click.findIndex((data)=>{return data === 1}) != -1 ? (
+                    props.data.map((item,i) =>
+                        <>
+                            <li key={item.id} onClick={()=>{
+                                viewData(i);
+                            }} onMouseOver={() => mouseLiHover(i)} onMouseOut={mouseLiOut}>
+                                <div className='tContentWrap'>
+                                    <span>{i+1}</span>
+                                    <p className='scP'>{item.script}</p>
+                                    <span>{i+1}</span>
+                                </div>
+                                <div className='elem' style={liStyle(i)}></div>
+                            </li>
+                            <div className='wheelP'>Use the mouse wheel!</div>
+                        </>
+                    )) : undefined
                 }
             </ul>
+            {scClick.findIndex((data) => {
+                return data === 1
+            }) !== -1 ? (
+                <DataView scClick={scClick} ChangeScClick={ChangeScClick} data={props.data}/>
+            ) : undefined
+            }
+
+            {loading ? <PartLoading /> : undefined}
         </div>
     )
 }

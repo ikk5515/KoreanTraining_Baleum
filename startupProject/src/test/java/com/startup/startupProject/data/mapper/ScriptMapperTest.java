@@ -19,7 +19,7 @@ public class ScriptMapperTest {
 
     @Test
     public void getAllScriptTest() {
-        List<daily> dailyList = scriptService.selectAllScript();
+        List<daily> dailyList = scriptService.selectDailyScript();
         for (daily daily : dailyList) {
             System.out.println(daily);
         }

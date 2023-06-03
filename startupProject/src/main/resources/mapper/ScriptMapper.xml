@@ -5,8 +5,19 @@
 
 <mapper namespace="com.startup.startupProject.data.mapper.ScriptMapper">
 
-    <select id="selectAllScript" resultType="daily">
-        SELECT dailyno, dscript from daily
+    <select id="selectDailyScript" resultType="daily">
+        SELECT dailyno, dascript from daily
     </select>
 
+    <select id="selectBusinessScript" resultType="business">
+        SELECT BusinessNo, BuScript from business
+    </select>
+
+    <select id="selectMovieScript" resultType="movie">
+        SELECT MovieNo, MoScript from movie
+    </select>
+
+    <select id="selectDramaScript" resultType="drama">
+        SELECT DramaNo, DrScript from drama
+    </select>
 </mapper>

@@ -7,7 +7,7 @@
 .listWrap .funcList{
     margin: 0 0 0 0;
     padding: 90px 0 0 0;
-    z-index: 100;
+    z-index: 1000;
     position: fixed;
     font-family: 'neuwelt_Medium';
     width: 15vw;
@@ -25,6 +25,7 @@
     padding: 3vh 0 3vh 0;
     position: relative;
     border: none;
+    cursor: pointer;
 }
 
 .listWrap .funcList li p{
@@ -34,6 +35,13 @@
     font-family: 'neuwelt_Medium';
     position: absolute;
     z-index: 1000;
+
+    /*드래그 방지*/
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+    /*--------*/
 }
 
 .listWrap .funcList li span{

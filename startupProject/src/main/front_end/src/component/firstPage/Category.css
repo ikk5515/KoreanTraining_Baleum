@@ -17,36 +17,37 @@
 }
 
 .textArea{
-    width: 750px;
+    width: 742px;
     position: absolute;
-    top: -15%;
-    left: calc(50% - 375px);
+    top: 30%;
+    left: calc(50% - 742px / 2);
     z-index: -10;
+    text-align: right;
 }
 
 .textArea h1{
-    
+    font-size: 3em;
 }
 
 .textArea p{
     font-family: 'neuwelt_Medium';
-    color: black
+    color: black;
+    font-size: 1.5em;
 }
 
 .textArea p:nth-of-type(1){
-    font-family: 'bodoniXT';
     color:#0554F2;
+    font-size: 1.75em;
 }
 
 .textArea p:nth-of-type(2){
-    font-family: 'neuwelt_Medium';
     color: black;
     margin: 0 0 0 10px;
 }
 
 
 .textArea p:nth-of-type(1), .textArea p:nth-of-type(3){
-    margin: 0 0 0 20px;
+    margin: 0 0 0 5px;
 }
 
 .cateWrap ul{
@@ -59,7 +60,7 @@
     
 }
 
-.cateWrap ul .navLink{
+.cateWrap ul{
     text-decoration: none;
 }
 
@@ -74,6 +75,14 @@
     box-shadow: gray 5px 5px 10px;
     position: relative;
     color: white;
+    cursor: pointer;
+
+    /*드래그 방지*/
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+    /*--------*/
 }   
 
 .cateWrap ul li p{

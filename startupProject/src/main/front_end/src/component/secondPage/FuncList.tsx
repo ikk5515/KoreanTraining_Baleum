@@ -4,11 +4,8 @@ import './FuncList.css';
 import data from '../../jData/categoryData.json';
 import SubDataList from "./SubDataList";
 
-export default function FuncList(props:{click:number[], ChangeClick:any}){
-
+export default function FuncList(props:{click:number[], ChangeClick:any, data:{ id?: number, script?: string }[]}){
     const [hover, setHover] = useState([0, 0, 0, 0, 0]);
-
-
     function ChangeHover(s : number, index : number){
         hover[index] = s;
         setHover([...hover]);
@@ -41,7 +38,7 @@ export default function FuncList(props:{click:number[], ChangeClick:any}){
                     </li>
                 ))}
             </ul>
-            <SubDataList click={props.click} ChangeClick={props.ChangeClick}/>
+            <SubDataList click={props.click} ChangeClick={props.ChangeClick} data={props.data}/>
         </div>
     )
 }

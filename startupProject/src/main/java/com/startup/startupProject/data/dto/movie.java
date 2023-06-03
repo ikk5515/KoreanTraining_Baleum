@@ -4,8 +4,8 @@ import lombok.Data;
 import org.apache.ibatis.type.Alias;
 
 @Data
-@Alias("daily")
-public class daily {
-    private Long DAILYNO;
-    private String DASCRIPT;
+@Alias("movie")
+public class movie {
+    private Long MovieNo;
+    private String MoScript;
 }
