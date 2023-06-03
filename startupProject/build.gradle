@@ -71,7 +71,15 @@ task buildReact(type: Exec) {
 }
 
 task copyReactBuildFiles(type: Copy) {
+<<<<<<< HEAD
+	dependsOn "buildReact"
+	from "$frontendDir/build"
+	into "$projectDir/src/main/resources/static"
+
+}
+=======
     dependsOn "buildReact"
     from "$frontendDir/build"
     into "$projectDir/src/main/resources/static"
 }
+>>>>>>> 9bb53378246cf9f604083c013006932294e3ba45
