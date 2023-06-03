@@ -18,7 +18,7 @@
 }
 .SDLwrap p:nth-of-type(2){
     font-size: 2.25em;
-    color: black;
+    color: #2c2c2c;;
     width: 1000px;
     top: 14vh;
     left: 20vw;
@@ -120,4 +120,5 @@
     width: 400px;
     font-size: 2.5em;
     font-family: 'neuwelt_Medium';
+    color: #2c2c2c;
 }

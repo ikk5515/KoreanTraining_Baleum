@@ -9,7 +9,7 @@ export default function Header({children} : any){
     return(
         <header>
             <div className='logo'>
-                <p className='logoText'>Baleum</p>
+                <p className='logoText'>Baleum.</p>
             </div>
         </header>
     )

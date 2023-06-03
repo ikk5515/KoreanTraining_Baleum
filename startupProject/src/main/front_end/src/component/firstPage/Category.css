@@ -18,15 +18,17 @@
 
 .textArea{
     width: 742px;
+    height: 240px;
     position: absolute;
-    top: 30%;
+    top: calc(50% - 180px);
     left: calc(50% - 742px / 2);
     z-index: -10;
     text-align: right;
 }
 
 .textArea h1{
-    font-size: 3em;
+    font-size: 2.5em;
+    color: #494949;
 }
 
 .textArea p{
@@ -51,19 +53,14 @@
 }
 
 .cateWrap ul{
-    margin: 100px auto 0;
+    margin: 7% auto 0;
     height: 100vh;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    
-}
-
-.cateWrap ul{
     text-decoration: none;
 }
-
 
 .cateWrap ul li{
     width: 15vw;

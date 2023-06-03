@@ -11,9 +11,10 @@ header{
 
 .logo{
     padding : 0;
-    color: #0554F2;
+    color: #0554f2;
     font-family: 'neuwelt_Medium';
     display: flex;
+    position: relative;
 }
 
 .logo .logoText{

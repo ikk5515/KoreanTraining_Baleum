@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import './Recorder.css';
 import WavEncoder from 'wav-encoder';
 import OnAir from './Animation/OnAir';
@@ -10,6 +10,7 @@ function Recorder(props:{scClick:number[], ChangeScClick:any, data:{ id?: number
     const recorderRef = useRef<MediaRecorder | null>(null);
     const [showScore, setShowScore] = useState<boolean>(false);
     const [score, setScore] = useState<number>(-1);
+    const [STT, setSTT] = useState<string>('');
 
     const handleStartRecording = async () => {
         try {
@@ -39,9 +40,18 @@ function Recorder(props:{scClick:number[], ChangeScClick:any, data:{ id?: number
                 const formData = new FormData();
                 formData.append('audio', wavBlob, 'recording.wav');
                 formData.append('script', props.selectedSc );
+                const errorMsg = '👿Oops! : I couldn\'t hear your voice.';
                 const response = await fetch('/upload', { method: 'POST', body: formData });
                 const responseData = await response.text();
-                setScore(parseFloat(responseData));
+                const responseDatas = responseData.split(" ");
+                const responseScore = responseDatas[0];
+                let procSTT:string = '';
+                for(let i=1; i<responseDatas.length; i++){
+                    procSTT += (responseDatas[i] + ' ');
+                }
+                const responseSTT = procSTT === '' ? errorMsg : procSTT;
+                setScore(parseFloat(responseScore));
+                setSTT(responseSTT);
             });
 
             recorder.start();
@@ -92,7 +102,7 @@ function Recorder(props:{scClick:number[], ChangeScClick:any, data:{ id?: number
                 )}
             </div>
             {showScore ? (
-                <ScoreView setShowScore={setShowScore} score={score} ChangeScClick={props.ChangeScClick}/>
+                <ScoreView setShowScore={setShowScore} score={score} STT={STT} ChangeScClick={props.ChangeScClick}/>
             ) : undefined
             }
         </>

@@ -8,25 +8,22 @@ export default function Summary(){
 
     return(
         <>
-        <section>
-            <div className='textContent'>
-                <h1>Speak with confidence!</h1>
+            <section>
                 <div className='cWrap'>
                     <div className='logoWrap'>
                         <img src={logo}/>
-                        <p>Baleum</p>
+                        <p>Baleum.</p>
                     </div>
                     <div className='pWrap'>
-                        <p>Learn</p>
-                        <p>your</p>
-                        <p>confident</p>
-                        <p>pronunciation</p>
+                        <p>LEARN</p>
+                        <p>YOUR</p>
+                        <p>CONFIDENT</p>
+                        <p>PRONUNCIATION</p>
                     </div>
                 </div>
-            </div>
-            <BgElement height={''} display={''} />
-        </section>
-        <Category/>
+                <BgElement height={''} display={''}/>
+            </section>
+            <Category/>
         </>
     )
 }

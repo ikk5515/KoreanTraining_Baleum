@@ -2,9 +2,10 @@ import React, {useEffect, useState} from 'react';
 import './ScoreView.css';
 import axios from "axios";
 import PartLoading from "./Animation/PartLoading";
+import TTSView from "./TTSView";
 // @ts-ignore
 
-export default function ScoreView(props:{ChangeScClick:any, setShowScore, score:number}){
+export default function ScoreView(props:{ChangeScClick:any, setShowScore, score:number, STT:string}){
     const [count, setCount] = useState<number>(0);
     const [loading, setLoading] = useState<boolean>(false);
     const [showContent, setShowContent] = useState<boolean>(false);
@@ -64,6 +65,13 @@ export default function ScoreView(props:{ChangeScClick:any, setShowScore, score:
         setScoreDescription(txt);
     }
 
+    const STTStyle = () => {
+        let style = {
+            color : props.STT[2] === 'O' || props.STT[2] === 'o'  ? 'red' : 'black'
+        }
+        return style;
+    }
+
     return(
         <div className='scoreWrap'>
             {loading ? (
@@ -86,17 +94,21 @@ export default function ScoreView(props:{ChangeScClick:any, setShowScore, score:
                                     <div className='backFill2' style={{ top: `${bfTop}%` }}></div>
                                 </div>
                                 <div className='sttWrap'>
+                                    <div className='textBox'>
+                                        <p className='sttp sp1'>You say</p>
+                                        <p className='sttp sp2' style={STTStyle()}>
+                                            {props.STT}
+                                        </p>
+                                        <p className='sttp sp3'>Are you satisfied?</p>
+                                        <TTSView selectedSc={props.STT} />
+                                    </div>
                                     <div className='wave'></div>
                                     <div className='wave'></div>
                                 </div>
                             </div>
-                            <button onClick={props.ChangeScClick}>Go back</button>
-                            {/*<div>*/}
-                            {/*    <div className='square sq1'></div>*/}
-                            {/*    <div className='square sq2'></div>*/}
-                            {/*    <div className='square sq3'></div>*/}
-                            {/*    <div className='square sq4'></div>*/}
-                            {/*</div>*/}
+                            <button className='gobackBtn' onClick={props.ChangeScClick}>Go back</button>
+                            <div className='bgCir cir1'></div>
+                            <div className='bgCir cir2'></div>
                         </div>
                     )}
                 </>

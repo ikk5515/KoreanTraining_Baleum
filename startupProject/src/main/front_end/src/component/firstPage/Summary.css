@@ -3,41 +3,22 @@ section{
     height: 100vh;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    position: relative;
-}
-
-section .textContent{
-    position: absolute;
-    width: 730px;
-    height: 310px;
-    top: calc(50% - 310px / 2);
-    left: calc(50% - 730px / 2);
-    z-index: 100;
-}
-
-h1{
-    font-size: 4em;
-    margin:0;
 }
 
 .cWrap{
     display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.textContent p{
-    margin: 0;
-    padding: 0;
-    font-size: 2em;
-    display: block;;
-    width: 200px;
+    justify-content: left;
+    align-items: center;
+    margin: 0 auto;
+    /*background-color: rgba(243, 243, 243, 0.38);*/
+    width: 735px;
+    height: 100vh;
+    mix-blend-mode: color-dodge;
 }
 
 .logoWrap{
     width: 150px;
+    height: 180px;
     text-align: center;
     display: inline-block;
     margin-right: 20px;
@@ -51,8 +32,23 @@ h1{
     width: 150px;
 }
 
+.pWrap{
+    position: relative;
+    flex-direction: column;
+    /*margin-right: 40%;*/
+    height: 345px;
+}
 
-/*-----------------------------------*/
+.pWrap  p{
+    position: absolute;
+    font-size: 4.25em;
+}
+
+.pWrap p:nth-of-type(1){top: -10px; left: 0; color: rgba(27, 142, 242, 0.37);}
+.pWrap p:nth-of-type(2){top: 37px; left: 4px; color: rgba(0, 119, 255, 0.55);}
+.pWrap p:nth-of-type(3){top: 85px; left: 0; color: rgba(0, 58, 255, 0.53);}
+.pWrap p:nth-of-type(4){top: 132px; left: 0; color: rgba(0, 58, 255, 0.75);}
+
 section img{
     width: 150px;
     height: 150px;
@@ -61,20 +57,3 @@ section img{
     border-radius: 28.555px;
     margin-bottom: -5px;;
 }
-
-.pWrap{
-    position: relative;
-    flex-direction: column;
-    margin-right: 42%;
-}
-
-.pWrap  p{
-    position: absolute;
-    font-size: 3.5em;
-    color: rgba(0, 0, 0, 0.66);
-}
-
-.pWrap p:nth-of-type(1){top: -10px; left: 0;}
-.pWrap p:nth-of-type(2){top: calc(43px * 1 - 10px); left: 0;}
-.pWrap p:nth-of-type(3){top: calc(43px * 2 - 10px); left: 0;}
-.pWrap p:nth-of-type(4){top: calc(43px * 3 - 10px); left: 0;}
