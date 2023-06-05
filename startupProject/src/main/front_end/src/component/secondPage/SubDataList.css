@@ -72,6 +72,7 @@
 .subDataWrap li span{
     position: static;
     display: block;
+    color: #2c2c2c;
 }
 
 .subDataWrap li span:nth-of-type(1){
