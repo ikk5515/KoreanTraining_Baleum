@@ -147,6 +147,7 @@
 .scoreWrap .scoreContent .sttWrap .textBox .sp1{
     top: 10%;
     left: 0;
+    color: #2c2c2c;
 }
 
 .scoreWrap .scoreContent .sttWrap .textBox .sp2{
@@ -158,7 +159,9 @@
 }
 
 .scoreWrap .scoreContent .sttWrap .textBox .sp3{
-
+    top: 0;
+    left: 0;
+    color: #2c2c2c;
 }
 
 .scoreWrap .scoreContent .sttWrap .textBox  .ttsBtn{
