@@ -110,8 +110,24 @@
     z-index: -1;
 }
 
+.dvBack{
+    border-radius: 50%;
+    position: absolute;
+    opacity: 0.1;
+}
 
+.dvb1{
+    width: 100px;
+    height: 100px;
+    top: 20%;
+    right: 10%;
+    background-color: #0c87ff;
+}
 
-
-
-
+.dvb2{
+    width: 200px;
+    height: 200px;
+    top: 24%;
+    right: 8%;
+    background-color: #0554f2;
+}

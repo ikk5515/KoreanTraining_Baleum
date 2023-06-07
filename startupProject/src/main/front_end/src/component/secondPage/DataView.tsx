@@ -7,11 +7,11 @@ import TTSView from "./TTSView";
 export default function DataView(props:{scClick:number[], ChangeScClick:any, data:{ id?: number, script?: string }[]}){
     const [hover, setHover] = useState(0);
 
-// test!!! ---------------------------------------------------
+//test!!! ---------------------------------------------------
 //     const testData = [
 //         "오늘하루 고생많았어요. 내일봐요~!오늘하루 고생많았어요. 내일봐요~!"
 //     ]
-// test!!! ---------------------------------------------------
+//test!!! ---------------------------------------------------
 
     const handleXicon = () => {
         const value = hover ? 0 : 1;
@@ -48,17 +48,14 @@ export default function DataView(props:{scClick:number[], ChangeScClick:any, dat
                             <div className='ttsWrap'>
                                 <TTSView selectedSc={selectedSc}/>
                             </div>
-                            <p>hear the correct pronunciation</p>
                         </div>
+                        <div className='dvBack dvb1'></div>
+                        <div className='dvBack dvb2'></div>
                     </div>
-
                 </div>
                 <Recorder scClick={props.scClick} ChangeScClick={props.ChangeScClick} data={props.data} selectedSc={selectedSc}/>
                 <div className='se'></div>
                 <div className='ce1'></div>
-{/*
-                <div className='ce2'></div>
-*/}
             </div>
         </div>
     )
