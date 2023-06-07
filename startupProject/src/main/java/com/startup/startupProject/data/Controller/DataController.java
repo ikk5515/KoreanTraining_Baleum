@@ -8,12 +8,13 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/api")
 public class DataController {
 
     private final ScriptService scriptService;
 
 
-    @GetMapping("/api/daily")
+    @GetMapping("/daily")
     @ResponseBody
     public String dailyDataTrans() throws JSONException {
         JSONArray jsonArray = new JSONArray();
@@ -24,7 +25,7 @@ public class DataController {
         return jsonArray.toString();
     }
 
-    @GetMapping("/api/business")
+    @GetMapping("/business")
     @ResponseBody
     public String businessDataTrans() throws JSONException {
         JSONArray jsonArray = new JSONArray();
@@ -35,7 +36,7 @@ public class DataController {
         return jsonArray.toString();
     }
 
-    @GetMapping("/api/movie")
+    @GetMapping("/movie")
     @ResponseBody
     public String movieDataTrans() throws JSONException {
         JSONArray jsonArray = new JSONArray();
@@ -46,7 +47,7 @@ public class DataController {
         return jsonArray.toString();
     }
 
-    @GetMapping("/api/drama")
+    @GetMapping("/drama")
     @ResponseBody
     public String dramaDataTrans() throws JSONException {
         JSONArray jsonArray = new JSONArray();
