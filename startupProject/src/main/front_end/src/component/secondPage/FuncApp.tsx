@@ -58,8 +58,6 @@ function FuncApp(){
         }
     }, [click[3]]);
 
-    console.log(dbData);
-
     const tempArr = new Array(dbData.length);
     useEffect(()=>{
         tempArr.length = 0;
@@ -69,8 +67,6 @@ function FuncApp(){
         setParsedObj(tempArr);
     }, [dbData]);
 
-    console.log(parsedObj);
-
     function parsingDbData(s:string) {
         const idMatch = s.match(/NO=(\w+)/i)?? undefined; // 문자열에서 숫자만 추출
         const id = idMatch ? parseInt(idMatch[1]) : undefined;
@@ -79,13 +75,6 @@ function FuncApp(){
         const scriptObject = { id, script };
         tempArr.push(scriptObject);
     }
-
-
-
-
-    parsedObj.map((item, i)=> {
-        console.log(`분해된 데이터 ${i+1} = id: ${item.id}, script: ${item.script}`);
-    })
 
 
     // @ts-ignore
@@ -98,4 +87,10 @@ function FuncApp(){
     )
 }
 
-export default FuncApp;
+const areEqual = (prevProps: {parsedObj:{ id?: number, script?: string }}, nextProps: {parsedObj:{ id?: number, script?: string }}) => {
+    return(
+        JSON.stringify(prevProps.parsedObj) === JSON.stringify(nextProps.parsedObj)
+    )
+}
+
+export default React.memo(FuncApp, areEqual);

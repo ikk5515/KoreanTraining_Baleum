@@ -5,7 +5,7 @@ import './Header.css';
 export default function Header({children} : any){
     
     const [click, setClick] = useState(0);
-    console.log(click);
+
     return(
         <header>
             <div className='logo'>
