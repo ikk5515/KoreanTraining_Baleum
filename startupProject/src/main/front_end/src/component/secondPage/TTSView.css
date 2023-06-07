@@ -4,7 +4,7 @@ input{
 
 .ttsBtn{
     position: relative;
-    width:100px;
+    width: 350px;
     height: 40px;
     border: none;
     font-size: 1.5em;
@@ -27,11 +27,11 @@ input{
     margin: 0 10px 0 0;
     position: absolute;
     top: 7%;
-    left: 17%;
+    left: 12%;
 }
 .picon{
     font-family: 'Courier New', Courier, monospace;
     position: absolute;
     top: 18%;
-    left: 68%;
+    right: 10%;
 }

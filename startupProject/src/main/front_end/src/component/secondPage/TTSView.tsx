@@ -23,7 +23,7 @@ function TTSView(props:{selectedSc : string}) {
                 onChange={(e) => setText(e.target.value)}
             />
             <button className='ttsBtn' onClick={handleTTS}>
-                <div className='play'>Play</div>
+                <div className='play'>Listen to the sentence</div>
                 <div className='picon'>▶</div>
             </button>
         </div>
