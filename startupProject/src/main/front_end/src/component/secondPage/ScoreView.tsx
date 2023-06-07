@@ -86,7 +86,6 @@ export default function ScoreView(props:{ChangeScClick:any, setShowScore, score:
                             </div>
                             <div className='flexWrap'>
                                 <div className='scWrap'>
-                                    {/*<p>{count}</p>*/}
                                     <p>Got</p>
                                     <p>{count}</p>
                                     <p>Points</p>
