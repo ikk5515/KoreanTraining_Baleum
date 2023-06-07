@@ -1,7 +1,6 @@
-/*.recordWrap{*/
-/*    width: 82vw;*/
-/*    height: 20vh;*/
-/*}*/
+.recordWrap{
+    z-index: 100;
+}
 
 .recordWrap button{
     position: absolute;
