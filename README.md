@@ -3,6 +3,26 @@
 <br>
 <hr>
 <br>
+<h1>개발환경</h3>
+<li>IntelliJ</li>
+<li>Postman</li>
+<li>DBeaver</li>
+<li>Github</li>
+<li>SpringBoot Version : 2.7.9</li>
+<h1>사용기술</h1>
+<h3>BackEnd</h3>
+<li>Java 11</li>
+<li>Spring Boot</li>
+<li>Mybatis</li>
+<h3>Build Tool</h3>
+<li>Gradle</li>
+<li>IntelliJ</li>
+<h3>Database</h3>
+<li>Docker</li>
+<li>Oracle Database 11c</li>
+<h3>FrontEnd</h3>
+<li>React</li>
+<li>TypeScript</li>
 
 <h1>개요</h1>
 <p>오늘날 세계화된 시대에 다양한 언어와 문화 간의 효과적인 의사소통은 점점 중요해지고 있다. 새로운 언어를 배우는 데 있어서 발음 습득은 의도한 메시지를 전달하는데 중요한 역할을 하는 것으로, 특히 외국인들이 한국어를 배우거나 발음에 어려움을 겪는 한국인들에게 중요하다.
