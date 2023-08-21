@@ -1,8 +1,12 @@
-![자산 3](https://github.com/gyojinnK/KoreanTraining_Baleum/assets/97776614/448cc151-d310-4dd1-b315-48aba12d3d87)
-
+[![baleum 로고](https://github.com/gyojinnK/KoreanTraining_Baleum/assets/97776614/448cc151-d310-4dd1-b315-48aba12d3d87)](https://kr-training.shop)
 <br>
 <hr>
 <br>
+
+
+### [Baleum 사이트](https://kr-training.shop)
+
+
 <h1>개발환경</h3>
 <li>IntelliJ</li>
 <li>Postman</li>
@@ -18,8 +22,8 @@
 <li>Gradle</li>
 <li>IntelliJ</li>
 <h3>Database</h3>
-<li>Docker</li>
-<li>Oracle Database 11c</li>
+<li>AWS RDS</li>
+<li>MySQL 8.0.33</li>
 <h3>FrontEnd</h3>
 <li>React</li>
 <li>TypeScript</li>
