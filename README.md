@@ -1,13 +1,18 @@
-[![baleum 로고](https://github.com/gyojinnK/KoreanTraining_Baleum/assets/97776614/448cc151-d310-4dd1-b315-48aba12d3d87)](https://kr-training.shop)
+![baleum](https://github.com/ikk5515/KoreanTraining_Baleum/assets/22267184/c148e11e-9608-4843-8ed5-d680d624b27e)
 <br>
 <hr>
-<br>
-<h1>개발환경</h3>
+
+<h1>URL</h3>
+
+# [Baleum](https://kr-training.shop)
+
+<h1>개발환경</h1>
 <li>IntelliJ</li>
 <li>Postman</li>
 <li>DBeaver</li>
 <li>Github</li>
 <li>SpringBoot Version : 2.7.9</li>
+<li>Gradle 7.6.1</li>
 <h1>사용기술</h1>
 <h3>BackEnd</h3>
 <li>Java 11</li>
@@ -17,11 +22,14 @@
 <li>Gradle</li>
 <li>IntelliJ</li>
 <h3>Database</h3>
-<li>AWS RDS</li>
 <li>MySQL 8.0.33</li>
+<li>AWS RDS</li>
 <h3>FrontEnd</h3>
 <li>React</li>
 <li>TypeScript</li>
+<h3>Server</h3>
+<li>ubuntu 22.04 LTS</li>
+<li>AWS EC2</li>
 
 <h1>개요</h1>
 <p>오늘날 세계화된 시대에 다양한 언어와 문화 간의 효과적인 의사소통은 점점 중요해지고 있다. 새로운 언어를 배우는 데 있어서 발음 습득은 의도한 메시지를 전달하는데 중요한 역할을 하는 것으로, 특히 외국인들이 한국어를 배우거나 발음에 어려움을 겪는 한국인들에게 중요하다.
