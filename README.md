@@ -2,11 +2,6 @@
 <br>
 <hr>
 <br>
-
-
-### [Baleum 사이트](https://kr-training.shop)
-
-
 <h1>개발환경</h3>
 <li>IntelliJ</li>
 <li>Postman</li>
