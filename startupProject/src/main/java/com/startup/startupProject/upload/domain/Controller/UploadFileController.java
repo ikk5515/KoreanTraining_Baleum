@@ -52,11 +52,6 @@ public class UploadFileController {
         String scoreString = Double.toString(score);
 
         fileDeleteService.deleteFile(audioFileFullMame);
-
-//        System.out.println("objName = " + objName);
-//        System.out.println("scoreString = " + scoreString);
-//        System.out.println("ScriptResult = " + ScriptResult);
-
         return scoreString+" "+ScriptResult;
     }
 }
