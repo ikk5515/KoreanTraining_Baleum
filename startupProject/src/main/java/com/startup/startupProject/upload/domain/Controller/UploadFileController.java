@@ -53,9 +53,9 @@ public class UploadFileController {
 
         fileDeleteService.deleteFile(audioFileFullMame);
 
-        System.out.println("objName = " + objName);
-        System.out.println("scoreString = " + scoreString);
-        System.out.println("ScriptResult = " + ScriptResult);
+//        System.out.println("objName = " + objName);
+//        System.out.println("scoreString = " + scoreString);
+//        System.out.println("ScriptResult = " + ScriptResult);
 
         return scoreString+" "+ScriptResult;
     }
