@@ -45,7 +45,7 @@ jobs:
       uses: gradle/gradle-build-action@v2
       with:
         gradle-version: 7.6.1
-        arguments: clean build
+        arguments: build
         
     - name: Make zip file
       run: zip -r ./$GITHUB_SHA.zip .
