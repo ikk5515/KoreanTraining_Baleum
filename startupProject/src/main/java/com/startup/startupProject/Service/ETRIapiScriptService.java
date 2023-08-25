@@ -35,7 +35,7 @@ public class ETRIapiScriptService {     // ETRI api를 이용하여 음성파일
             audioContents = Base64.getEncoder().encodeToString(audioBytes);
         } catch (IOException e) {
             e.printStackTrace();
-            return "Speech recognition failed.";
+            return "0";
         }
 
         argument.put("language_code", languageCode);
@@ -72,7 +72,7 @@ public class ETRIapiScriptService {     // ETRI api를 이용하여 음성파일
 
         } catch (IOException e) {
             e.printStackTrace();
-            return "Speech recognition failed.";
+            return "0";
         }
         return responBody.substring(98, responBody.length()-3);
     }

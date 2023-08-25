@@ -6,7 +6,7 @@ module.exports = function(app) {
   app.use(
     '/',
     createProxyMiddleware({
-      target: 'http://localhost:8080', // 타겟 URL
+      target: 'https://kr-training.shop', // 타겟 URL
       changeOrigin: true,
     })
   );

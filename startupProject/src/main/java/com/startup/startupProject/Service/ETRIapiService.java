@@ -19,7 +19,7 @@ import org.springframework.stereotype.Service;
 import com.google.gson.Gson;
 
 @Service
-public class ETRIapiService {
+public class ETRIapiService {   // 발음평가 API
     public static double etriApi(String audioName, String objString) {
 //		SpringApplication.run(EtriApiTestApplication.class, args);
         String openApiURL = "http://aiopen.etri.re.kr:8000/WiseASR/PronunciationKor";   //한국어
