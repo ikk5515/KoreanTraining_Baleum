@@ -31,6 +31,10 @@ jobs:
       with:
         java-version: '11'
         distribution: 'temurin'
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'
 
     - uses: actions/checkout@v3
     - run: touch ./startupProject/src/main/resources/application.properties
@@ -42,7 +46,7 @@ jobs:
       shell: bash
       
     - name: Build with Gradle
-      run: cd startupProject && ./gradlew build --stacktrace
+      run: cd startupProject && ./gradlew build
       shell: bash
         
     - name: Make zip file
