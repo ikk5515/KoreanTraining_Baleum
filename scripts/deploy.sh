@@ -22,4 +22,4 @@ fi
 
 DEPLOY_JAR=$DEPLOY_PATH$JAR_NAME
 echo ">>> DEPLOY_JAR 배포"    >> /home/ikk5515/app/KoreanTraining_Baleum/deploy.log
-nohup java -jar $DEPLOY_JAR >> /home/ikk5515/deploy.log 2>/home/ikk5515/app/KoreanTraining_Baleum/deploy_err.log &
+nohup java -jar $DEPLOY_JAR & >> /home/ikk5515/deploy.log 2>/home/ikk5515/app/KoreanTraining_Baleum/deploy_err.log &
