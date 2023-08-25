@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-REPOSITORY=/home/ikk5515/app/KoreanTraining_Baleum
+REPOSITORY=/home/ikk5515/app/KoreanTraining_Baleum/startupProject
 cd $REPOSITORY
 
 APP_NAME=startupProject-0.0.1-SNAPSHOT.jar
