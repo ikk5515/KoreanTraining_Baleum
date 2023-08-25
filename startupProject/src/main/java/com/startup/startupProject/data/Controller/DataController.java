@@ -21,7 +21,6 @@ public class DataController {
         for (int i = 0; i < scriptService.selectDailyScript().size(); i++) {
             jsonArray.put(scriptService.selectDailyScript().get(i));
         }
-        System.out.println("jsonArray = " + jsonArray);
         return jsonArray.toString();
     }
 
@@ -32,7 +31,6 @@ public class DataController {
         for (int i = 0; i < scriptService.selectBusinessScript().size(); i++) {
             jsonArray.put(scriptService.selectBusinessScript().get(i));
         }
-        System.out.println("jsonArray = " + jsonArray);
         return jsonArray.toString();
     }
 
@@ -43,7 +41,6 @@ public class DataController {
         for (int i = 0; i < scriptService.selectMovieScript().size(); i++) {
             jsonArray.put(scriptService.selectMovieScript().get(i));
         }
-        System.out.println("jsonArray = " + jsonArray);
         return jsonArray.toString();
     }
 
@@ -54,7 +51,6 @@ public class DataController {
         for (int i = 0; i < scriptService.selectDramaScript().size(); i++) {
             jsonArray.put(scriptService.selectDramaScript().get(i));
         }
-        System.out.println("jsonArray = " + jsonArray);
         return jsonArray.toString();
     }
 }

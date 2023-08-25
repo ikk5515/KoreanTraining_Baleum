@@ -34,7 +34,7 @@ public class WavToRaw {
             output.flush();
             output.close();
 
-            System.out.println("Wav to Raw converting Success");
+//            System.out.println("Wav to Raw converting Success");
             return fileName;
 
         } catch (IOException e) {

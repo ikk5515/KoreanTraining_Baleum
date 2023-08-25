@@ -31,28 +31,28 @@ function FuncApp(){
 
     useEffect(() => {
         if (click[0]) {
-            axios.get('http://localhost:8080/api/daily')
+            axios.get('https://kr-training.shop/api/daily')
                 .then(response => setDBdata(response.data))
                 .catch(error => console.log(error))
         }
     }, [click[0]]);
     useEffect(() => {
         if (click[1]) {
-            axios.get('http://localhost:8080/api/business')
+            axios.get('https://kr-training.shop/api/business')
                 .then(response => setDBdata(response.data))
                 .catch(error => console.log(error))
         }
     }, [click[1]]);
     useEffect(() => {
         if (click[2]) {
-            axios.get('http://localhost:8080/api/movie')
+            axios.get('https://kr-training.shop/api/movie')
                 .then(response => setDBdata(response.data))
                 .catch(error => console.log(error))
         }
     }, [click[2]]);
     useEffect(() => {
         if (click[3]) {
-            axios.get('http://localhost:8080/api/drama')
+            axios.get('https://kr-training.shop/api/drama')
                 .then(response => setDBdata(response.data))
                 .catch(error => console.log(error))
         }
