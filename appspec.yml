@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source:  /
-    destination: /home/ikk5515/action
+    destination: /home/ikk5515/app/KoreanTraining_Baleum/startupProject/
     overwrite: yes
 
 permissions:
