@@ -52,7 +52,7 @@ function FuncApp(){
     }, [click[2]]);
     useEffect(() => {
         if (click[3]) {
-            axios.get('http://localhost:8080/api/drama')
+            axios.get('https://kr-training.shop/api/drama')
                 .then(response => setDBdata(response.data))
                 .catch(error => console.log(error))
         }
