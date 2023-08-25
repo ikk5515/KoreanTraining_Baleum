@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BUILD_JAR=$(ls /home/ikk5515/app/KoreanTraining_Baleum/startupProject/build/libs/*.jar)
+BUILD_JAR=$(ls /home/ikk5515/app/KoreanTraining_Baleum/startupProject/build/libs/startupProject-0.0.1-SNAPSHOT.jar)
 JAR_NAME=$(basename $BUILD_JAR)
 echo ">>> build 파일명: $JAR_NAME" >> /home/ikk5515/app/KoreanTraining_Baleum/deploy.log
 
