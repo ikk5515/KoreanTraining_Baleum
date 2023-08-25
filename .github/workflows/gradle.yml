@@ -45,9 +45,6 @@ jobs:
       run: cd startupProject && ./gradlew build
       shell: bash
 
-    - name: build
-      run: CI='' npm run build
-        
     - name: Make zip file
       run: zip -r ./$GITHUB_SHA.zip .
       shell: bash
