@@ -37,7 +37,7 @@ public class UploadFileController {
     @PostMapping("/upload")
     public String uploadFile(@RequestParam("audio") MultipartFile file, @RequestParam("script") String objName) throws IOException, UnsupportedAudioFileException {
         String fileName = fileUploadDownloadService.storeFile(file);
-        File audioFile = new File("/home/ikk5515/app/KoreanTraining_Baleum/startupProject/src/main/resources/audio/"+fileName);
+        File audioFile = new File("src/main/resources/audio/"+fileName);
         String audioFileName = wavToRaw.SaveRaw(fileName, audioFile);
 
 
