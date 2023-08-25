@@ -42,7 +42,7 @@ jobs:
       shell: bash
       
     - name: Build with Gradle
-      run: cd startupProject && ./gradlew build --debug
+      run: cd startupProject && ./gradlew --debug build 
       shell: bash
         
     - name: Make zip file
