@@ -16,7 +16,7 @@ import com.google.gson.Gson;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ETRIapiScriptService {
+public class ETRIapiScriptService {     // ETRI api를 이용하여 음성파일을 텍스트로 변환하는 서비스
 
     public static String etriScriptService(String audioName) {
         String openApiURL = "http://aiopen.etri.re.kr:8000/WiseASR/Recognition";
@@ -35,7 +35,7 @@ public class ETRIapiScriptService {
             audioContents = Base64.getEncoder().encodeToString(audioBytes);
         } catch (IOException e) {
             e.printStackTrace();
-            return null;
+            return "Speech recognition failed.";
         }
 
         argument.put("language_code", languageCode);
@@ -72,7 +72,7 @@ public class ETRIapiScriptService {
 
         } catch (IOException e) {
             e.printStackTrace();
-            return null;
+            return "Speech recognition failed.";
         }
         return responBody.substring(98, responBody.length()-3);
     }
