@@ -45,7 +45,7 @@ function FuncApp(){
     }, [click[1]]);
     useEffect(() => {
         if (click[2]) {
-            axios.get('http://localhost:8080/api/movie')
+            axios.get('https://kr-training.shop/api/movie')
                 .then(response => setDBdata(response.data))
                 .catch(error => console.log(error))
         }
