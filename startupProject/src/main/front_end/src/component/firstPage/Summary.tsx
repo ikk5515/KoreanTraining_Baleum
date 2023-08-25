@@ -18,7 +18,7 @@ export default function Summary(){
                         <p>LEARN</p>
                         <p>YOUR</p>
                         <p>CONFIDENT</p>
-                        <p>PRONUNCIATIONA</p>
+                        <p>PRONUNCIATION</p>
                     </div>
                 </div>
                 <BgElement height={''} display={''}/>
