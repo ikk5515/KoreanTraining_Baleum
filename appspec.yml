@@ -4,7 +4,7 @@ files:
   - source:  /
     destination: /home/ikk5515/app/KoreanTraining_Baleum/
     overwrite: yes
-file_exists_behavior : OVERWRITE
+# file_exists_behavior : OVERWRITE
 
 permissions:
   - object: /
